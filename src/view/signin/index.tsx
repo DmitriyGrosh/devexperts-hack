@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState, FC } from 'react';
+import axios from 'axios';
 
 import Input from '../../shared/ui/input';
 import Background from '../../shared/ui/background';
@@ -13,25 +14,25 @@ const Signin: FC = () => {
     if (type === 'password') setPassword(event.target.value);
   };
 
-  const handleLogin = () => {
+  const handleSignin = () => {
     const data = {
-      login,
+      username: login,
       password,
     };
 
+    axios.post(`${process.env.REACT_APP_SERVER}auth/login`, data).then((res) => console.log('==========>data', res));
     console.log('==========>data', data);
   };
 
   const signIn = () => {
     const auth2 = window.gapi.auth2.getAuthInstance();
     auth2.signIn().then((googleUser: any) => {
-      const profile = googleUser.getBasicProfile();
-
-      // токен
       // eslint-disable-next-line camelcase
       const { id_token } = googleUser.getAuthResponse();
-      // eslint-disable-next-line camelcase
-      console.log(`ID Token: ${id_token}`);
+      axios
+        // eslint-disable-next-line camelcase
+        .post<{ token: string }>(`${process.env.REACT_APP_SERVER}auth/google/login`, { token: id_token })
+        .then((data) => console.log('==========>data', data));
     });
   };
   return (
@@ -39,16 +40,16 @@ const Signin: FC = () => {
       <div className='inputs-container'>
         <h1>Регистоация</h1>
         <div className='inputs'>
+          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='поиск' />
           <Input
             type='text'
             value={password}
             handleChange={(event) => handleChange(event, 'password')}
             placeholder='пароль'
           />
-          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='поиск' />
         </div>
         <div className='buttons'>
-          <button onClick={handleLogin}>зарегестрироваться</button>
+          <button onClick={handleSignin}>зарегестрироваться</button>
           <button onClick={signIn}>войти через гугл</button>
         </div>
       </div>

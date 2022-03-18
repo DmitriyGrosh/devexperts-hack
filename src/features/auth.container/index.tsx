@@ -7,13 +7,6 @@ declare global {
 }
 
 const AuthContainer: FC = ({ children }) => {
-  const signOut = () => {
-    const auth2 = window.gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  };
-
   useEffect(() => {
     const _onInit = (auth2: any) => {
       console.log('init OK', auth2);
@@ -23,7 +16,7 @@ const AuthContainer: FC = ({ children }) => {
       console.log('error', err);
     };
     setTimeout(() => {
-      window.gapi.load('auth', () => {
+      window.gapi.load('auth2', () => {
         window.gapi.auth2
           .init({
             client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
