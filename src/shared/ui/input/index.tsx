@@ -8,10 +8,13 @@ interface IInput {
   type: Types;
   value: string;
   handleChange: (event: ChangeEvent<HTMLInputElement>, ...rest: any[]) => void;
+  placeholder?: string;
 }
 
-const Input: FC<IInput> = ({ type, value, handleChange }) => {
-  return <input className='input-default' type={type} value={value} onChange={handleChange} />;
+const Input: FC<IInput> = ({ type, value, handleChange, placeholder }) => {
+  return (
+    <input placeholder={placeholder} className='input-default' type={type} value={value} onChange={handleChange} />
+  );
 };
 
 export default Input;

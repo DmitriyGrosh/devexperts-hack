@@ -2,4 +2,13 @@
 	width: 356px;
 	height: 56px;
 	background: #F4F5F4;
+	border: 1px solid #7B61FF;
+	box-sizing: border-box;
+	padding: 0 15px;
+	border-radius: 15px;
+	font-size: 20px;
+
+	&::placeholder {
+		color: rgba(0, 0, 0, 0.5);
+	}
 }

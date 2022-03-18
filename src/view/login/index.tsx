@@ -1,11 +1,11 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState, FC } from 'react';
 
 import Input from '../../shared/ui/input';
-import Background from './background';
+import Background from '../../shared/ui/background';
 
 import './style.scss';
 
-const Login = () => {
+const Login: FC = () => {
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const handleChange = (event: ChangeEvent<HTMLInputElement>, type: 'login' | 'password') => {
@@ -39,11 +39,18 @@ const Login = () => {
       <div className='inputs-container'>
         <h1>Авторизация</h1>
         <div className='inputs'>
-          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} />
-          <Input type='text' value={password} handleChange={(event) => handleChange(event, 'password')} />
+          <Input
+            type='text'
+            value={password}
+            handleChange={(event) => handleChange(event, 'password')}
+            placeholder='пароль'
+          />
+          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='поиск' />
         </div>
-        <button onClick={handleLogin}>войти</button>
-        <button onClick={signIn}>войти через гугл</button>
+        <div className='buttons'>
+          <button onClick={handleLogin}>войти</button>
+          <button onClick={signIn}>войти через гугл</button>
+        </div>
       </div>
       <div className='visual-container'>
         <Background />
