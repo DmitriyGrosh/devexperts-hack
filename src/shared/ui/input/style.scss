@@ -1,0 +1,14 @@
+.input-default {
+	max-width: 356px;
+	width: 100%;
+	background: #F4F5F4;
+	border: 1px solid #7B61FF;
+	box-sizing: border-box;
+	padding: 8px 16px;
+	border-radius: 8px;
+	font-size: 16px;
+
+	&::placeholder {
+		color: rgba(0, 0, 0, 0.5);
+	}
+}

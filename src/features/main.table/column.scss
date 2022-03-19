@@ -1,0 +1,21 @@
+.table-column {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: var(--background-secondary);
+
+  & .table-column__name {
+    padding: 0 8px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  & .table-column__name-item {
+    color: var(--background-primary);
+    padding: 4px;
+    font-size: 16px;
+    flex: 0 1 16.66%;
+    text-align: center;
+  }
+}
