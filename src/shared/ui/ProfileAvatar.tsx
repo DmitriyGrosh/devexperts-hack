@@ -7,7 +7,7 @@ const ProfileAvatar = () => {
   return (
     <Link to='/profile'>
       <div className='profile__avatar'>
-        <div className='profile__avatar-img'>kek</div>
+        <div className='profile__avatar-img' />
       </div>
     </Link>
   );

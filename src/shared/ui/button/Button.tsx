@@ -3,14 +3,13 @@ import React, { MouseEvent, FC } from 'react';
 import './button.scss';
 
 interface IButton {
-  text: string;
   handleClick: (event: MouseEvent<HTMLButtonElement>, ...rest: any[]) => void;
 }
 
-const Button: FC<IButton> = ({ text, handleClick }) => {
+const Button: FC<IButton> = ({ children, handleClick }) => {
   return (
     <button className='button-default' onClick={handleClick}>
-      {text}
+      {children}
     </button>
   );
 };

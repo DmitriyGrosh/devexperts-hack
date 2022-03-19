@@ -50,8 +50,12 @@ const Signin: FC = () => {
           />
         </div>
         <div className='buttons'>
-          <Button text='Зарегистрироваться' handleClick={handleSignin} />
-          <Button text='войти через гугл' handleClick={signIn} />
+          <Button handleClick={handleSignin}>
+            <span>Зарегистрироваться</span>
+          </Button>
+          <Button handleClick={signIn}>
+            <span>войти через гугл</span>
+          </Button>
         </div>
       </div>
       <div className='visual-container'>

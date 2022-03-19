@@ -13,12 +13,10 @@ function App() {
     <BrowserRouter>
       <AuthContainer>
         <Router />
-        <Notification
-          type='error'
-          text='мы украдем ваши бананы а еще вашу жену? отчима и никчемную жизнь'
-          active
-          image={<img className='notification__img' src={success} alt='' />}
-        />
+        <Notification type='error' active>
+          <img className='notification__img' src={success} alt='' />
+          <p>мы украдем ваши бананы а еще вашу жену? отчима и никчемную жизнь</p>
+        </Notification>
       </AuthContainer>
     </BrowserRouter>
   );

@@ -6,12 +6,10 @@ type Types = 'success' | 'error';
 
 interface INotification {
   type: Types;
-  text: string;
-  image?: React.ReactElement;
   active: boolean;
 }
 
-const Notification: FC<INotification> = ({ type, text, image, active }) => {
+const Notification: FC<INotification> = ({ type, children, active }) => {
   const [activeNotification, setActiveNotification] = useState(active);
   if (activeNotification) {
     const timeout = setTimeout(() => {
@@ -22,8 +20,7 @@ const Notification: FC<INotification> = ({ type, text, image, active }) => {
   return (
     <div className={`notification ${type} ${activeNotification ? 'active' : ''}`}>
       <div className='notification__container'>
-        {image || ''}
-        <p className='notification__text'>{text}</p>
+        {children}
         <button onClick={() => setActiveNotification(false)} className='notification__close' />
       </div>
     </div>
