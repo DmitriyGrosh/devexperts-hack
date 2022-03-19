@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import './title.scss';
 
-export type Types = 'Все акции' | 'Портфель';
+export type Types = 'Все акции' | 'Отслеживаемое';
 
 interface ITitle {
   folder: Types;
@@ -13,8 +13,8 @@ const Title: FC<ITitle> = ({ folder, changeFolderHandle }) => {
   return (
     <div className='main-title'>
       <div className='main__switch-folder'>
-        <button className={`${folder === 'Портфель' ? 'active' : ''}`} onClick={() => changeFolderHandle('Портфель')}>
-          Мои акции
+        <button className={`${folder === 'Отслеживаемое' ? 'active' : ''}`} onClick={() => changeFolderHandle('Отслеживаемое')}>
+          Добавленные
         </button>
         <button className={`${folder === 'Все акции' ? 'active' : ''}`} onClick={() => changeFolderHandle('Все акции')}>
           Все акции

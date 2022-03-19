@@ -7,7 +7,7 @@ import Search from '../../features/searcher/ui/search'
 import './style.scss';
 
 const Main: FC = () => {
-  const [activeFolder, setActiveFolder] = useState<Types>('Портфель');
+  const [activeFolder, setActiveFolder] = useState<Types>('Отслеживаемое');
   const changeFolderHandle = (folder: Types) => {
     setActiveFolder(folder);
   };
