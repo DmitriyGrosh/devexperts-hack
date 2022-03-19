@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import './styles/logo.scss';
 
-type Props = {};
+import './styles/logo.scss';
 
 const Logo: FC = () => {
   return (

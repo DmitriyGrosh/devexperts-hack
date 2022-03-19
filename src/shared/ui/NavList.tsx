@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import './styles/navlist.scss';
 
-type Props = {};
-
-const NavList: FC = (props: Props) => {
+const NavList: FC = () => {
   return (
     <ul className='nav__list'>
       <li>

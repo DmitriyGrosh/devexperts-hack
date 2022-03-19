@@ -5,6 +5,7 @@ import Input from '../../shared/ui/input';
 import Background from '../../shared/ui/background';
 
 import './style.scss';
+import Button from '../../shared/ui/button/Button';
 
 const Signin: FC = () => {
   const [login, setLogin] = useState<string>('');
@@ -38,7 +39,7 @@ const Signin: FC = () => {
   return (
     <div className='auth'>
       <div className='inputs-container'>
-        <h1>Регистоация</h1>
+        <h1>Регистрация</h1>
         <div className='inputs'>
           <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='поиск' />
           <Input
@@ -49,8 +50,8 @@ const Signin: FC = () => {
           />
         </div>
         <div className='buttons'>
-          <button onClick={handleSignin}>зарегестрироваться</button>
-          <button onClick={signIn}>войти через гугл</button>
+          <Button text='Зарегистрироваться' handleClick={handleSignin} />
+          <Button text='войти через гугл' handleClick={signIn} />
         </div>
       </div>
       <div className='visual-container'>
