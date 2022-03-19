@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import './styles/profileavatar.scss';
 
-type Props = {};
-
-const ProfileAvatar = (props: Props) => {
+const ProfileAvatar = () => {
   return (
     <Link to='/profile'>
       <div className='profile__avatar'>

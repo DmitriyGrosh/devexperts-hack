@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import './header.scss';
+
 import Logo from '../../../shared/ui/Logo';
 import NavList from '../../../shared/ui/NavList';
 import ProfileAvatar from '../../../shared/ui/ProfileAvatar';
 
-type Props = {};
+import './header.scss';
 
-const Header: FC = (props: Props) => {
+const Header: FC = () => {
   return (
     <header className='header'>
       <div className='header-container container'>
