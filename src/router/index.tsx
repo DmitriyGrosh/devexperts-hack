@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Calendar from '../view/calendar';
+import Main from '../view/main';
 import Profile from '../view/profile';
 import Signin from '../view/signin';
 import PrivateRouter from './PrivateRouter';
@@ -13,7 +14,7 @@ const Router = () => {
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Signin />} />
       <Route path='/calendar' element={<PrivateRouter />}>
-        <Route path='/calendar' element={<Calendar />} />
+      <Route path='/calendar' element={<Calendar />} />
       </Route>
       <Route path='*' element={<PrivateRouter />}>
         <Route
@@ -26,6 +27,8 @@ const Router = () => {
           }
         />
       </Route>
+      <Route path='/home' element={<Main />} />
+      <Route path='/profile' element={<Profile />} />
     </Routes>
   );
 };
