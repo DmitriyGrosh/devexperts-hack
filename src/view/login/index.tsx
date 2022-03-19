@@ -79,7 +79,7 @@ const Login: FC = () => {
       <div className='inputs-container'>
         <h1>Авторизация</h1>
         <div className='inputs'>
-          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='поиск' />
+          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='логин' />
           <Input
             type='password'
             value={password}
