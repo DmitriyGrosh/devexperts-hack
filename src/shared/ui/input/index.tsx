@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC } from 'react';
 
 import './style.scss';
 
-type Types = 'text' | 'number';
+type Types = 'text' | 'number' | 'password';
 
 interface IInput {
   type: Types;

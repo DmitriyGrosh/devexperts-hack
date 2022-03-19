@@ -5,14 +5,16 @@ import 'dhtmlx-scheduler/codebase/locale/locale_ru';
 
 import './style.scss';
 
-const { scheduler } = window as any;
+const { scheduler } = window;
 
 const Calendar = () => {
-  const schedule = useRef(null);
+  const schedule = useRef<HTMLDivElement>(null);
   useEffect(() => {
     scheduler.skin = 'material';
     scheduler.config.header = ['week', 'month', 'year', 'date', 'prev', 'today', 'next'];
-    scheduler.init(schedule.current as unknown as HTMLElement, new Date());
+    if (schedule.current) {
+      scheduler.init(schedule.current, new Date());
+    }
     scheduler.clearAll();
   }, []);
   return <div ref={schedule} className='container calendar' />;
