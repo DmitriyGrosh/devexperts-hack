@@ -25,19 +25,21 @@ const Calendar = () => {
     scheduler.clearAll();
   }, []);
   return (
-    <div className='scheduler-container'>
+    <>
       <Tools />
-      <div
-        id='scheduler_here'
-        ref={calendarRefContainer}
-        className='dhx_cal_container'
-        style={{
-          width: '100%',
-          height: '100%',
-        }}
-      />
-      <Lightbox />
-    </div>
+      <div className='scheduler-container'>
+        <div
+          id='scheduler_here'
+          ref={calendarRefContainer}
+          className='dhx_cal_container'
+          style={{
+            width: '100%',
+            height: '100%',
+          }}
+        />
+        <Lightbox />
+      </div>
+    </>
   );
 };
 
