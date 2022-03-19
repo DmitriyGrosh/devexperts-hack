@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import 'dhtmlx-scheduler';
 import 'dhtmlx-scheduler/codebase/dhtmlxscheduler_material.css';
 import 'dhtmlx-scheduler/codebase/locale/locale_ru';
+import 'dhtmlx-scheduler/codebase/ext/dhtmlxscheduler_year_view';
 
 import './style.scss';
 
@@ -11,6 +12,7 @@ const Calendar = () => {
   const calendarRefContainer = useRef<HTMLDivElement>(null);
   useEffect(() => {
     scheduler.skin = 'material';
+    // scheduler.locale.labels.year_tab = 'Year';
     scheduler.config.header = ['week', 'month', 'year', 'date', 'prev', 'today', 'next'];
     if (calendarRefContainer.current) {
       scheduler.init(calendarRefContainer.current, new Date());

@@ -3,4 +3,12 @@
     height: 50px;
     border-radius: 50%;
     background-color: var(--background-secondary);
+
+    .profile__avatar-img {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

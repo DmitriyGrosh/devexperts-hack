@@ -1,4 +1,30 @@
 .scheduler-container {
   height: calc(100vh - 120px);
   width: 100%;
+
+  .dhx_cal_navline {
+    .dhx_cal_tab {
+      box-shadow: -1px 0 0 #5142AB;
+      border: 1px solid #5142AB;
+      color: #5142AB;
+      //color: #5142AB !important;
+    }
+
+    .active {
+      color: white;
+      box-shadow: -1px 0 0 #5142AB;
+      border: 1px solid #5142AB;
+      background-color: #5142AB;
+    }
+
+    .dhx_cal_today_button {
+      color: #5142AB;
+    }
+  }
+
+  .dhx_year_month {
+    color: #5142AB;
+  }
+
+
 }
