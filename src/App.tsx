@@ -1,24 +1,23 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import Router from './router/index';
 import AuthContainer from './features/auth.container';
-import Notification from './shared/ui/notification/Notification';
 
-import success from './assets/success.svg';
+import { store } from './redux';
+
 import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthContainer>
-        <Router />
-        <Notification type='error' active>
-          <img className='notification__img' src={success} alt='' />
-          <p>мы украдем ваши бананы а еще вашу жену? отчима и никчемную жизнь</p>
-        </Notification>
-      </AuthContainer>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <AuthContainer>
+          <Router />
+        </AuthContainer>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
