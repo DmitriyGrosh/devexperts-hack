@@ -6,7 +6,6 @@ import { useAppDispatch } from '../../redux/hooks';
 
 import { setLogin as setLoginAction } from '../../features/auth.container/model/auth.slice';
 
-
 import Input from '../../shared/ui/input';
 import Background from '../../shared/ui/background';
 
