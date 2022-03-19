@@ -7,6 +7,7 @@ import Profile from '../view/profile';
 import Signin from '../view/signin';
 import PrivateRouter from './PrivateRouter';
 import Login from '../view/login';
+import StocksView from '../view/stocks.view';
 
 const Router = () => {
   return (
@@ -24,6 +25,10 @@ const Router = () => {
 
       <Route path='/profile' element={<PrivateRouter />}>
         <Route path='/profile' element={<Profile />} />
+      </Route>
+
+      <Route path='/stock/:id' element={<PrivateRouter />}>
+        <Route path='/stock/:id' element={<StocksView />} />
       </Route>
 
       <Route path='*' element={<PrivateRouter />}>

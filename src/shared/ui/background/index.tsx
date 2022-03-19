@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import Logo from '../Logo';
 
 import info from '../../../assets/info.png';
 
@@ -10,8 +11,7 @@ const Background: FC = () => {
       <img src={info} alt='backgroynd' />
       <div className='description-container'>
         <div className='description'>
-          <p>здесь будет лого</p>
-          <p>pltcm ,eltn ntrcn gjl kjuj</p>
+          <Logo />
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import { setLogin as setLoginAction } from '../../features/auth.container/model/
 
 import Input from '../../shared/ui/input';
 import Background from '../../shared/ui/background';
+import Button from '../../shared/ui/button/Button';
 
 import './style.scss';
 
@@ -87,8 +88,12 @@ const Login: FC = () => {
           />
         </div>
         <div className='buttons'>
-          <button onClick={handleLogin}>войти</button>
-          <button onClick={signIn}>войти через гугл</button>
+          <Button handleClick={signIn}>
+            <span>войти</span>
+          </Button>
+          <Button handleClick={signIn}>
+            <span>войти через гугл</span>
+          </Button>
         </div>
       </div>
       <div className='visual-container'>
