@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import Column from '../../features/main.table/Column';
 import Row from '../../features/main.table/Row';
 import Title, { Types } from '../../features/main.table/Title';
-import Search from '../../features/searcher/ui/search'
+import Search from '../../features/searcher/ui/search';
 
 import './style.scss';
 
