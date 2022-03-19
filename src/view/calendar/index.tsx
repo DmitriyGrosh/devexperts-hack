@@ -6,15 +6,19 @@ import 'dhtmlx-scheduler/codebase/ext/dhtmlxscheduler_year_view';
 
 import './style.scss';
 import Tools from '../../features/tools';
+import Lightbox from '../../features/lightbox';
 
 const { scheduler } = window;
 
 const Calendar = () => {
   const calendarRefContainer = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    scheduler.clearAll();
     scheduler.skin = 'material';
     // scheduler.locale.labels.year_tab = 'Year';
+    scheduler.config.readonly = true;
     scheduler.config.header = ['week', 'month', 'year', 'date', 'prev', 'today', 'next'];
+    scheduler.config.details_on_dblclick = true;
     if (calendarRefContainer.current) {
       scheduler.init(calendarRefContainer.current, new Date());
     }
@@ -32,6 +36,7 @@ const Calendar = () => {
           height: '100%',
         }}
       />
+      <Lightbox />
     </div>
   );
 };
