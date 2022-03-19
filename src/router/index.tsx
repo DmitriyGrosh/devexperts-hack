@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Calendar from '../view/calendar';
+import Profile from '../view/profile';
 import Signin from '../view/signin';
 import PrivateRouter from './PrivateRouter';
 import Login from '../view/login';
