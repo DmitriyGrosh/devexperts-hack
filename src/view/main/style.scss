@@ -1,0 +1,18 @@
+.main {
+
+  & .main-table {
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.2);
+  }
+
+  & .main-table__columns {
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.3);
+  }
+
+  & .main-table__rows {
+    padding-top: 20px;
+    height: 600px;
+    width: 100%;
+    position: relative;
+    overflow: scroll;
+  }
+}
