@@ -5,6 +5,7 @@ import 'dhtmlx-scheduler/codebase/locale/locale_ru';
 import 'dhtmlx-scheduler/codebase/ext/dhtmlxscheduler_year_view';
 
 import './style.scss';
+import Tools from '../../features/tools';
 
 const { scheduler } = window;
 
@@ -21,6 +22,7 @@ const Calendar = () => {
   }, []);
   return (
     <div className='scheduler-container'>
+      <Tools />
       <div
         id='scheduler_here'
         ref={calendarRefContainer}
