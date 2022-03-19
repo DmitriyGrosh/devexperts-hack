@@ -1,0 +1,18 @@
+.calendar {
+  width: 100%;
+  height: 100%;
+
+  & .dhx_scale_holder_now,
+  & .dhx_scale_holder {
+    border: none;
+  }
+
+  & .dhx_scale_holder:last-child {
+    display: none;
+    position: absolute;
+  }
+
+  & .dhx_cal_scale_placeholder {
+    box-shadow: none;
+  }
+}
