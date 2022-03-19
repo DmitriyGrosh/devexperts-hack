@@ -13,9 +13,19 @@ const Router = () => {
     <Routes>
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Signin />} />
+
       <Route path='/calendar' element={<PrivateRouter />}>
-      <Route path='/calendar' element={<Calendar />} />
+        <Route path='/calendar' element={<Calendar />} />
       </Route>
+
+      <Route path='/home' element={<PrivateRouter />}>
+        <Route path='/home' element={<Main />} />
+      </Route>
+
+      <Route path='/profile' element={<PrivateRouter />}>
+        <Route path='/profile' element={<Profile />} />
+      </Route>
+
       <Route path='*' element={<PrivateRouter />}>
         <Route
           path='*'
@@ -27,8 +37,6 @@ const Router = () => {
           }
         />
       </Route>
-      <Route path='/home' element={<Main />} />
-      <Route path='/profile' element={<Profile />} />
     </Routes>
   );
 };
