@@ -78,7 +78,7 @@ const Login: FC = () => {
       <div className='inputs-container'>
         <h1>Авторизация</h1>
         <div className='inputs'>
-          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='поиск' />
+          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='логин' />
           <Input
             type='password'
             value={password}
@@ -87,8 +87,8 @@ const Login: FC = () => {
           />
         </div>
         <div className='buttons'>
-          <button onClick={handleLogin}>войти</button>
-          <button onClick={signIn}>войти через гугл</button>
+          <button className="btn-login" onClick={handleLogin}>Войти</button>
+          <button className="btn-loginggl" onClick={signIn}>Google Account</button>
         </div>
       </div>
       <div className='visual-container'>
