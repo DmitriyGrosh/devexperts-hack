@@ -8,16 +8,28 @@ import './style.scss';
 const { scheduler } = window;
 
 const Calendar = () => {
-  const schedule = useRef<HTMLDivElement>(null);
+  const calendarRefContainer = useRef<HTMLDivElement>(null);
   useEffect(() => {
     scheduler.skin = 'material';
     scheduler.config.header = ['week', 'month', 'year', 'date', 'prev', 'today', 'next'];
-    if (schedule.current) {
-      scheduler.init(schedule.current, new Date());
+    if (calendarRefContainer.current) {
+      scheduler.init(calendarRefContainer.current, new Date());
     }
     scheduler.clearAll();
   }, []);
-  return <div ref={schedule} className='container calendar' />;
+  return (
+    <div className='scheduler-container'>
+      <div
+        id='scheduler_here'
+        ref={calendarRefContainer}
+        className='dhx_cal_container'
+        style={{
+          width: '100%',
+          height: '100%',
+        }}
+      />
+    </div>
+  );
 };
 
 export default Calendar;
