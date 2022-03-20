@@ -10,8 +10,10 @@ const Column: FC = () => {
         <span className='table-column__name-item'>Последний день покупки</span>
         <span className='table-column__name-item'>Дата закрытия</span>
         <span className='table-column__name-item'>Размер дивидендов</span>
-        <span className='table-column__name-item'>Цена акции на закрытие</span>
-        <span className='table-column__name-item'>Дивидендная доходность</span>
+        <span className='table-column__name-item'>Текущая цена акции</span>
+        <span className='table-column__name-item'>Кол-во дней до возврата</span>
+        <span className='table-column__name-item'>ГЭП</span>
+        <span className='table-column__name-item'>Действие</span>
       </div>
     </div>
   );

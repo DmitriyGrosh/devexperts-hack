@@ -100,6 +100,8 @@ code {
   --text-primary: #373F41;
   --text-secondary: #F4F5F4;
   --text-thirty: rgba(12, 12, 12, 0.5);
+  --text-success: #6FCF97;
+  --text-danger: #F64823 ;
 }
 
 #root {
