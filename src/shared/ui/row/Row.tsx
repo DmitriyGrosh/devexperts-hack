@@ -1,7 +1,7 @@
 import moment from 'moment';
 import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { addUserStockThunk, deleteUserStockThunk } from '../../../features/main.table/model/stock.thunk';
+import { updateUserStock } from '../../../features/tools/model/stock.slice';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { Types } from '../table.title/Title';
 
@@ -21,20 +21,28 @@ interface IRow {
 }
 
 const Row: FC<IRow> = ({ rowItem, folder }) => {
-  const { userStocks } = useAppSelector((state) => state.stocks);
+  const { userStocks, stocksNames } = useAppSelector((state) => state.stocks);
   const dispatch = useAppDispatch();
   const deleteHandle = () => {
     const filteredUserStock = userStocks.filter((userStock: UserStock) => userStock.symbol !== rowItem.symbol);
-    dispatch(deleteUserStockThunk(filteredUserStock));
+    dispatch(updateUserStock(filteredUserStock));
+    // dispatch(addUserStock(rowItem.symbol));
   };
   const addHandle = () => {
-    const stockInArray: UserStock | undefined = userStocks.find(
-      (userStock: UserStock) => userStock.symbol === rowItem.symbol,
-    );
-    if (!stockInArray) {
-      const addedIntoStock = [...userStocks, rowItem];
-      dispatch(addUserStockThunk(addedIntoStock));
+    const filteredUsrStocks = userStocks.filter((stock) => {
+      return stock.symbol === rowItem.symbol;
+    });
+    if (filteredUsrStocks.length === 0) {
+      const newUserStock = [...userStocks, ...stocksNames.filter((el) => el.symbol === rowItem.symbol)];
+      dispatch(updateUserStock(newUserStock));
     }
+    // const stockInArray: UserStock | undefined = userStocks.find(
+    //   (userStock: UserStock) => userStock.symbol === rowItem.symbol,
+    // );
+    // if (!stockInArray) {
+    //   const addedIntoStock = [...userStocks, rowItem];
+    //   dispatch(addUserStockThunk(addedIntoStock));
+    // }
   };
   const lastDividend = rowItem.dividends ? rowItem.dividends[0] : null;
   const date = moment(lastDividend?.date).format('YYYY-MM-DD');
@@ -50,8 +58,8 @@ const Row: FC<IRow> = ({ rowItem, folder }) => {
       <span className='table-row__name-item'>{date}</span>
       <span className='table-row__name-item'>{lastDividend?.dividendPrice} $</span>
       <span className='table-row__name-item'>{rowItem.currentPrice} $</span>
-      <span className='table-row__name-item'>Цена акции на закрытие</span>
-      <span className='table-row__name-item'>Дивидендная доходность</span>
+      <span className='table-row__name-item'>{lastDividend?.recoverDays} Дней</span>
+      <span className='table-row__name-item'>{lastDividend?.gap} %</span>
       {folder === 'Портфель' ? (
         <span className='table-row__name-item'>
           <button className='delete' onClick={deleteHandle}>
