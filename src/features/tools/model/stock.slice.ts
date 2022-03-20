@@ -3,7 +3,7 @@ import { deleteUserStockThunk, setUserStockThunk, addUserStockThunk } from '../.
 
 import { setStockThunk } from './stock.thunk';
 import { UserStock } from '../../../shared/ui/row/Row';
-import { data } from '../../../view/calendar/mocks';
+import { data, events } from '../../../view/calendar/mocks';
 
 const symbols = [
   {
@@ -1344,11 +1344,20 @@ const initialState = {
       currentPrice: 300.43,
     },
   ] as Array<UserStock>,
+  dividends: [] as any[],
+  currentStock: {
+    symbol: '',
+    date: '',
+  },
 };
 export const stockSlice = createSlice({
   name: 'stocks',
   initialState,
   reducers: {
+    setCurrentStock: (state, action: PayloadAction<{ symbol: string; date: string }>) => {
+      // @ts-ignore
+      state.currentStock = action.payload;
+    },
     setActiveStock: (state, action: PayloadAction<UserStock>) => {
       let counter = true;
 
@@ -1379,6 +1388,13 @@ export const stockSlice = createSlice({
       state.stocksNames = action.payload;
     },
     [setUserStockThunk.fulfilled.type]: (state, action: PayloadAction<Array<UserStock>>) => {
+      let newData: any[] = [];
+      events.forEach((el) => {
+        if (el.dividends?.length) {
+          newData = [...newData, ...el.dividends];
+        }
+      });
+      state.dividends = newData;
       state.userStocks = action.payload;
     },
     [deleteUserStockThunk.fulfilled.type]: (state, action: PayloadAction<Array<UserStock>>) => {
@@ -1390,6 +1406,6 @@ export const stockSlice = createSlice({
   },
 });
 
-export const { setActiveStock, deleteStock, filterStockNames, filterUserStocks } = stockSlice.actions;
+export const { setActiveStock, deleteStock, filterStockNames, filterUserStocks, setCurrentStock } = stockSlice.actions;
 
 export default stockSlice.reducer;

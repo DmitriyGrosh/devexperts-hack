@@ -9,6 +9,7 @@ import Search from '../../features/searcher/ui/search';
 import Title, { Types } from '../../shared/ui/table.title/Title';
 
 import './style.scss';
+// @ts-ignore
 import { filterStockNames, filterUserStocks } from '../../features/tools/model/stock.slice';
 
 const Main: FC = () => {
@@ -17,6 +18,7 @@ const Main: FC = () => {
   const changeFolderHandle = (folder: Types) => {
     setActiveFolder(folder);
   };
+  // @ts-ignore
   const { stocksNames, userStocks } = useAppSelector((state) => state.stocks);
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -31,6 +33,7 @@ const Main: FC = () => {
       dispatch(filterStockNames(searchValue));
     }
   };
+
   return (
     <div className='container main'>
       <Search searchValue={searchValue} filterStocks={filterStocks} />

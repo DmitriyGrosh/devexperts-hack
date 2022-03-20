@@ -17,6 +17,7 @@ const Lightbox = () => {
   const [idEvent, setIdEvent] = useState<string>('');
   const [dividendPrice, setDividendPrice] = useState<number>(0);
   const [symbol, setSymbol] = useState<string>('');
+  const [date, setDate] = useState<string>('');
 
   const closeForm = () => {
     if (formRef.current) {
@@ -38,6 +39,7 @@ const Lightbox = () => {
         setIdEvent(event.id);
         setDividendPrice(event.dividendPrice);
         setSymbol(event.symbol);
+        setDate(event.date);
 
         if (!event.symbol) {
           scheduler.endLightbox(false, formRef.current);
@@ -52,7 +54,7 @@ const Lightbox = () => {
     <div ref={formRef} id='lightbox-form'>
       <Header name={name} time={time} />
       <Content count={count} dividendPrice={dividendPrice} symbol={symbol} />
-      <Footer id={idEvent} handleCLick={closeForm} />
+      <Footer id={idEvent} symbol={symbol} date={date} handleCLick={closeForm} />
     </div>
   );
 };
