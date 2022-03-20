@@ -5,51 +5,6 @@ import { setStockThunk } from './stock.thunk';
 import { UserStock } from '../../../shared/ui/row/Row';
 import { data, events } from '../../../view/calendar/mocks';
 
-const symbols = [
-  {
-    symbol: 'AAPL',
-  },
-  {
-    symbol: 'MSFT',
-  },
-  {
-    symbol: 'NVDA',
-  },
-  {
-    symbol: 'TSM',
-  },
-  {
-    symbol: 'UNH',
-  },
-  {
-    symbol: 'JNJ',
-  },
-  {
-    symbol: 'V',
-  },
-  {
-    symbol: 'WMT',
-  },
-  {
-    symbol: 'BAC',
-  },
-  {
-    symbol: 'HD',
-  },
-  {
-    symbol: 'MA',
-  },
-  {
-    symbol: 'XOM',
-  },
-  {
-    symbol: 'CVX',
-  },
-  {
-    symbol: 'PFE',
-  },
-];
-
 const initialState = {
   stocksNames: [
     {
@@ -1383,9 +1338,9 @@ export const stockSlice = createSlice({
   },
   extraReducers: {
     [setStockThunk.fulfilled.type]: (state, action: PayloadAction<Array<UserStock>>) => {
-      console.log('==========>action', action);
+      console.log('==========>action', action.payload);
       // @ts-ignore
-      state.stocksNames = action.payload;
+      state.stocksNames = action.payload.length ? action.payload : initialState.stocksNames;
     },
     [setUserStockThunk.fulfilled.type]: (state, action: PayloadAction<Array<UserStock>>) => {
       let newData: any[] = [];

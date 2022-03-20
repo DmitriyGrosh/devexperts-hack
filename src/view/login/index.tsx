@@ -68,6 +68,8 @@ const Login: FC = () => {
 
           const decode: any = jwtDecode(access_token);
 
+          console.log('==========>access_token', access_token);
+          console.log('==========>refresh_token', refresh_token);
           setCredentionals(access_token, refresh_token);
           dispatch(setLoginAction({ name: decode.username, id: decode.id }));
           navigate('/calendar');
@@ -88,7 +90,7 @@ const Login: FC = () => {
           />
         </div>
         <div className='buttons'>
-          <Button handleClick={signIn}>
+          <Button handleClick={handleLogin}>
             <span>войти</span>
           </Button>
           <Button handleClick={signIn}>

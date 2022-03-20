@@ -9,7 +9,6 @@ export interface IAxiosRefreshResponse {
 export const API_URL = 'http://www.astra-dev.site:3000';
 
 const api = axios.create({
-  withCredentials: true,
   baseURL: API_URL,
 });
 

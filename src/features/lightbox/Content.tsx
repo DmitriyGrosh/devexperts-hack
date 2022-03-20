@@ -37,7 +37,7 @@ const Content: FC<IContent> = ({ count, dividendPrice, symbol }) => {
   return (
     <div className='lightbox-content'>
       <div className='line'>
-        <p className='name'>Выплвчено дивидентов</p>
+        <p className='name'>Выплачено дивидендов</p>
         <p>{dividendPrice}$</p>
       </div>
       <div className='line'>
