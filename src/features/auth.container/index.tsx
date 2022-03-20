@@ -37,7 +37,7 @@ const AuthContainer: FC = ({ children }) => {
             })
             .then(_onInit, _onError);
         });
-      }, 10);
+      }, 100);
       setIsPending(false);
     }
   }, []);
