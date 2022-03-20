@@ -41,7 +41,7 @@ const Tools: FC = () => {
   };
 
   useEffect(() => {
-    dispatch(setStockThunk());
+    // dispatch(setStockThunk());
   }, []);
 
   console.log('==========>stocks', stocksNames);

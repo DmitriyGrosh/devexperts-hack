@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Button, ButtonGroup, FormControl, Select, Box, InputLabel, MenuItem } from '@mui/material';
+import { Button, ButtonGroup, FormControl, Select, Box, InputLabel, MenuItem, Typography } from '@mui/material';
 import useWindowSize from '../../features/line.chart/hook';
 import { useAppSelector } from '../../redux/hooks';
+import api from '../../shared/api';
 
 import { RenderLineChart } from '../../features/line.chart';
 
 import './style.scss';
 import axios from 'axios';
-import { events } from '../calendar/mocks';
+import { events, changedData } from '../calendar/mocks';
+import moment from 'moment';
 
 const data = [
   {
@@ -49,11 +51,20 @@ interface Table {
   symbol: string;
 }
 
+interface Div {
+  shortName: string;
+  currentPrice: number;
+  dividends: { dividendPriceStatistic: { prices: number[]; timestamp: number[] } }[];
+}
+
 const StocksView = () => {
   const { dividends, currentStock } = useAppSelector((state) => state.stocks);
   const [range, setRange] = useState<Ticker>('y');
   const [interval, setInterval] = useState<Ticker>('d');
-  const [chartData, setChartData] = useState<Array<{ uv: number; name: string }>>([]);
+  const [chartData, setChartData] = useState<Array<{ price: number; name: string }>>([]);
+  const [divind, setDivind] = useState<Div | null>(null);
+  const [gap, setGap] = useState<number>(0);
+  const [days, setDays] = useState<Array<{ price: number; name: string }>>([]);
 
   const size = useWindowSize();
   const { id } = useParams();
@@ -76,14 +87,72 @@ const StocksView = () => {
   };
 
   const initData = async () => {
-    axios
-      .get(`http://www.astra-dev.site:3000/yahoo-finance/tickers/price/${current.symbol}/1${range}/1${interval}`)
+    await api
+      .get<{ timestamp: number[]; open: number[] }>(
+        `${process.env.REACT_APP_SERVER}yahoo-finance/tickers/price/${current.symbol}/1${range}/1${interval}`,
+      )
       .then((res) => {
-        // setChartData(res);
+        const dataRes = [] as { name: string; price: number }[];
+        res.data.timestamp.forEach((el, index) => {
+          const event = {
+            name: moment.unix(el).format('l'),
+            price: res.data.open[index],
+          };
+
+          dataRes.push(event);
+        });
+        console.log('==========>dataRes', dataRes);
+        setChartData(dataRes);
         console.log('==========>data', res);
       })
       .catch((err) => {
-        setChartData(data);
+        console.log('==========>1', 1);
+        const dataRes = [] as { name: string; price: number }[];
+        changedData.timestamp.forEach((el, index) => {
+          const event = {
+            name: new Date(el).toString(),
+            price: changedData.prices[index],
+          };
+
+          dataRes.push(event);
+        });
+        console.log('==========>dataRes', dataRes);
+        setChartData(dataRes);
+      });
+
+    await api
+      .get<{ value: number }>(
+        `${process.env.REACT_APP_SERVER}yahoo-finance/tickers/${current.symbol}/${
+          new Date(current.date).getTime() / 1000
+        }`,
+      )
+      // eslint-disable-next-line no-shadow
+      .then((data) => {
+        setGap(data.data.value || 0);
+        console.log('==========>data', data);
+      })
+      .catch((err) => {
+        console.log('==========>err', err);
+      });
+
+    await api
+      .get<Div[]>(`${process.env.REACT_APP_SERVER}yahoo-finance/tickers/info/${current.symbol}`)
+      // eslint-disable-next-line no-shadow
+      .then((data) => {
+        setDivind(data.data[0]);
+        const array = [] as { name: string; price: number }[];
+        const newPtices = data.data[0].dividends[0].dividendPriceStatistic.prices;
+        newPtices.forEach((el, index) => {
+          const datett = data.data[0].dividends[0].dividendPriceStatistic.timestamp;
+          const event = {
+            name: moment.unix(datett[index]).format('l'),
+            price: el,
+          };
+
+          array.push(event);
+        });
+        setDays(array);
+        console.log('==========>data asdasdasd asdasdas dasda', data.data);
       });
   };
 
@@ -97,6 +166,11 @@ const StocksView = () => {
     initData();
   }, [range, interval]);
 
+  console.log(
+    '==========>divind?.dividends[0].dividendPriceStatistic.prices.length',
+    divind?.dividends[0].dividendPriceStatistic.prices.length,
+  );
+  console.log('==========>divind?.dividends[0].dividendPriceStatistic.prices.length', divind?.dividends[0]);
   return (
     <div>
       <div className='line-chart-container'>
@@ -118,6 +192,11 @@ const StocksView = () => {
               День
             </Button>
           </ButtonGroup>
+          <div>Название: {current.symbol}</div>
+          <div>
+            Размер гэпа: <span>{gap}</span>
+          </div>
+          <div>закрытие гэпа через {divind?.dividends[0].dividendPriceStatistic.prices.length} день</div>
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <InputLabel color='secondary' id='demo-simple-select-label'>
@@ -145,6 +224,10 @@ const StocksView = () => {
           </Box>
         </Box>
         <RenderLineChart data={chartData} width={size.width} />
+        <Box display='flex' justifyContent='center'>
+          <Typography color='secondary'>График длины гэпа</Typography>
+        </Box>
+        <RenderLineChart data={days} width={size.width} />
       </div>
     </div>
   );

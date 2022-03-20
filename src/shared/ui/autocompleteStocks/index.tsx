@@ -12,6 +12,7 @@ interface IProps {
 const AutocompleteStocks: FC<IProps> = ({ stocks, handleSetSearch }) => {
   const [value, setValue] = useState<UserStock | null>(null);
   const [inputValue, setInputValue] = useState<string>('');
+  console.log('==========>stocks 1', stocks);
 
   return (
     <div>
