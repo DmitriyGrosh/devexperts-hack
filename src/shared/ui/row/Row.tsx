@@ -29,11 +29,11 @@ const Row: FC<IRow> = ({ rowItem, folder }) => {
   };
   const addHandle = () => {
     const stockInArray: UserStock | undefined = userStocks.find(
-      (userStock: UserStock) => userStock.symbol !== rowItem.symbol,
+      (userStock: UserStock) => userStock.symbol === rowItem.symbol,
     );
     if (!stockInArray) {
-      const g = [...userStocks, rowItem];
-      dispatch(addUserStockThunk(g));
+      const addedIntoStock = [...userStocks, rowItem];
+      dispatch(addUserStockThunk(addedIntoStock));
     }
   };
   const lastDividend = rowItem.dividends ? rowItem.dividends[0] : null;

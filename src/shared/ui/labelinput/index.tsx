@@ -5,7 +5,7 @@ import { Types } from '../input/index';
 
 import './style.scss';
 
-interface ILabelInput {
+export interface ILabelInput {
   label: string;
   type: Types;
   value: string;
