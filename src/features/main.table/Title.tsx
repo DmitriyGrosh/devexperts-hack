@@ -13,7 +13,10 @@ const Title: FC<ITitle> = ({ folder, changeFolderHandle }) => {
   return (
     <div className='main-title'>
       <div className='main__switch-folder'>
-        <button className={`${folder === 'Отслеживаемое' ? 'active' : ''}`} onClick={() => changeFolderHandle('Отслеживаемое')}>
+        <button
+          className={`${folder === 'Отслеживаемое' ? 'active' : ''}`}
+          onClick={() => changeFolderHandle('Отслеживаемое')}
+        >
           Добавленные
         </button>
         <button className={`${folder === 'Все акции' ? 'active' : ''}`} onClick={() => changeFolderHandle('Все акции')}>
