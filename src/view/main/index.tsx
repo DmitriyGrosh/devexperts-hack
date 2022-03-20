@@ -8,7 +8,7 @@ import './style.scss';
 import axios from 'axios';
 
 const Main: FC = () => {
-  const [activeFolder, setActiveFolder] = useState<Types>('Портфель');
+  const [activeFolder, setActiveFolder] = useState<Types>('Отслеживаемое');
   const changeFolderHandle = (folder: Types) => {
     setActiveFolder(folder);
   };

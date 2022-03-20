@@ -1,9 +1,20 @@
 .button-default {
-  min-width: 180px;
-  background-color: var(--background-secondary);
-  border-radius: 4px;
-  color: var(--text-secondary);
-  padding: 12px 32px;
-  font-weight: bold;
-  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #ffffff;
+  font-size: 15px;
+  background-color: #7B61FF;
+  height: 40px;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+}
+
+.button-default:hover{
+  background-color: #5142AB;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -o-transition: background 0.5s;
 }
