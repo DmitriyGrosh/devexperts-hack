@@ -19,6 +19,10 @@ const Router = () => {
         <Route path='/calendar' element={<Calendar />} />
       </Route>
 
+      <Route path='/home' element={<PrivateRouter />}>
+        <Route path='/home' element={<Main />} />
+      </Route>
+
       <Route path='/profile' element={<PrivateRouter />}>
         <Route path='/profile' element={<Profile />} />
       </Route>
