@@ -8,6 +8,7 @@ import { setLogin as setLoginAction } from '../../features/auth.container/model/
 
 import Input from '../../shared/ui/input';
 import Background from '../../shared/ui/background';
+import Button from '../../shared/ui/button/Button';
 
 import './style.scss';
 
@@ -67,6 +68,8 @@ const Login: FC = () => {
 
           const decode: any = jwtDecode(access_token);
 
+          console.log('==========>access_token', access_token);
+          console.log('==========>refresh_token', refresh_token);
           setCredentionals(access_token, refresh_token);
           dispatch(setLoginAction({ name: decode.username, id: decode.id }));
           navigate('/calendar');
@@ -78,7 +81,7 @@ const Login: FC = () => {
       <div className='inputs-container'>
         <h1>Авторизация</h1>
         <div className='inputs'>
-          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='поиск' />
+          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='логин' />
           <Input
             type='password'
             value={password}
@@ -87,8 +90,12 @@ const Login: FC = () => {
           />
         </div>
         <div className='buttons'>
-          <button onClick={handleLogin}>войти</button>
-          <button onClick={signIn}>войти через гугл</button>
+          <Button handleClick={handleLogin}>
+            <span>войти</span>
+          </Button>
+          <Button handleClick={signIn}>
+            <span>войти через гугл</span>
+          </Button>
         </div>
       </div>
       <div className='visual-container'>

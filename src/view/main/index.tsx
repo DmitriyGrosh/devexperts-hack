@@ -1,46 +1,44 @@
-import React, { FC, useState } from 'react';
-import Column from '../../features/main.table/Column';
-import Row from '../../features/main.table/Row';
-import Title, { Types } from '../../features/main.table/Title';
+/* eslint-disable react/display-name */
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
+
+import MainTable from '../../features/main.table/MainTable';
+import { setUserStockThunk } from '../../features/main.table/model/stock.thunk';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import Search from '../../features/searcher/ui/search';
+
+import Title, { Types } from '../../shared/ui/table.title/Title';
 
 import './style.scss';
+// @ts-ignore
+import { filterStockNames, filterUserStocks } from '../../features/tools/model/stock.slice';
 
 const Main: FC = () => {
-  const [activeFolder, setActiveFolder] = useState<Types>('Мои акции');
+  const [activeFolder, setActiveFolder] = useState<Types>('Портфель');
+  const [searchValue, setSearchValue] = useState<string>('');
   const changeFolderHandle = (folder: Types) => {
     setActiveFolder(folder);
   };
+  // @ts-ignore
+  const { stocksNames, userStocks } = useAppSelector((state) => state.stocks);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(setUserStockThunk());
+  }, []);
+  const filterStocks = (e: ChangeEvent<HTMLInputElement>) => {
+    const searchVal: string = e.target.value;
+    setSearchValue(searchVal);
+    if (activeFolder === 'Портфель') {
+      dispatch(filterUserStocks(searchValue));
+    } else {
+      dispatch(filterStockNames(searchValue));
+    }
+  };
+
   return (
     <div className='container main'>
+      <Search searchValue={searchValue} filterStocks={filterStocks} />
       <Title changeFolderHandle={changeFolderHandle} folder={activeFolder} />
-      <div className='main-table'>
-        <div className='main-table__columns'>
-          <Column />
-        </div>
-        <div className='main-table__rows'>
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-        </div>
-      </div>
+      <MainTable stockArray={activeFolder === 'Портфель' ? userStocks : stocksNames} folder={activeFolder} />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import './style.scss';
 import { setStockThunk } from './model/stock.thunk';
 import { deleteStock, setActiveStock } from './model/stock.slice';
 import Chips from '../../shared/ui/chips';
+import { UserStock } from '../../shared/ui/row/Row';
 
 const options = [
   {
@@ -31,16 +32,16 @@ const Tools: FC = () => {
   const { stocksNames, activeStocks } = useAppSelector((state) => state.stocks);
   const dispatch = useAppDispatch();
 
-  const handleSetSearch = (event: { id: string }) => {
+  const handleSetSearch = (event: UserStock) => {
     dispatch(setActiveStock(event));
   };
 
-  const handleDelete = (stock: { id: string }) => {
+  const handleDelete = (stock: UserStock) => {
     dispatch(deleteStock(stock));
   };
 
   useEffect(() => {
-    dispatch(setStockThunk());
+    // dispatch(setStockThunk());
   }, []);
 
   console.log('==========>stocks', stocksNames);
@@ -49,7 +50,7 @@ const Tools: FC = () => {
       <AutocompleteStocks stocks={stocksNames} handleSetSearch={handleSetSearch} />
       <div className='chips-container'>
         {activeStocks.map((stock) => (
-          <Chips handleDelete={() => handleDelete(stock)}>{stock.id}</Chips>
+          <Chips handleDelete={() => handleDelete(stock)}>{stock.symbol}</Chips>
         ))}
       </div>
     </div>

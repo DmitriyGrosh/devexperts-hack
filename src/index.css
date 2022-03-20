@@ -82,6 +82,11 @@ html, body {
   height: 100%;
 }
 
+.dhx_year_tooltip {
+  color: white !important;
+  background: white !important;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -91,10 +96,13 @@ code {
   --background-primary: white;
   --background-cards: #F4F5F4;
   --background-secondary: #5142AB;
+  --background-hovered: #3c2f83;
   --display-max: 1200px;
   --text-primary: #373F41;
   --text-secondary: #F4F5F4;
   --text-thirty: rgba(12, 12, 12, 0.5);
+  --text-success: #6FCF97;
+  --text-danger: #F64823 ;
 }
 
 #root {

@@ -76,7 +76,7 @@ const Signin: FC = () => {
       <div className='inputs-container'>
         <h1>Регистрация</h1>
         <div className='inputs'>
-          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='поиск' />
+          <Input type='text' value={login} handleChange={(event) => handleChange(event, 'login')} placeholder='логин' />
           <Input
             type='text'
             value={password}
@@ -89,7 +89,7 @@ const Signin: FC = () => {
             <span>Зарегистрироваться</span>
           </Button>
           <Button handleClick={signIn}>
-            <span>войти через гугл</span>
+            <span>Google Account</span>
           </Button>
         </div>
       </div>

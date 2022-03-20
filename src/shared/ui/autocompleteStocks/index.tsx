@@ -2,17 +2,18 @@ import React, { useState, FC } from 'react';
 
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { UserStock } from '../row/Row';
 
 interface IProps {
-  stocks: { id: string }[];
-  handleSetSearch: (event: { id: string }) => void;
+  stocks: UserStock[];
+  handleSetSearch: (event: UserStock) => void;
 }
 
 const AutocompleteStocks: FC<IProps> = ({ stocks, handleSetSearch }) => {
-  const [value, setValue] = useState<{ id: string } | null>(null);
+  const [value, setValue] = useState<UserStock | null>(null);
   const [inputValue, setInputValue] = useState<string>('');
+  console.log('==========>stocks 1', stocks);
 
-  console.log('==========>value', value);
   return (
     <div>
       <Autocomplete
@@ -28,10 +29,10 @@ const AutocompleteStocks: FC<IProps> = ({ stocks, handleSetSearch }) => {
           setInputValue(newInputValue);
         }}
         id='controllable-states-demo'
-        getOptionLabel={(option) => option.id}
+        getOptionLabel={(option) => option.symbol}
         options={stocks}
         sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label='Controllable' />}
+        renderInput={(params) => <TextField {...params} label='Выбор тикера' color='secondary' />}
       />
     </div>
   );
