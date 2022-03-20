@@ -1,13 +1,28 @@
-import React, { FC, useState, useEffect } from 'react';
-import Button from '../../shared/ui/button/Button';
-import LabelInput from '../../shared/ui/labelinput';
+import React, { FC, useState, useEffect, ChangeEvent } from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+import Button from '../../shared/ui/button/Button';
+import LabelInput, { ILabelInput } from '../../shared/ui/labelinput';
 
 import './style.scss';
 import jwtDecode from 'jwt-decode';
 
+interface IUser {
+  avatar: string;
+  fio: string;
+  mail: string;
+  password: string;
+  confirmPass: string;
+}
+
 const Profile: FC = () => {
-  const [avatar, setAvatar] = useState<string | null>(null);
+  const [user, setUser] = useState<IUser>({
+    avatar: '',
+    fio: '',
+    mail: '',
+    password: '',
+    confirmPass: '',
+  });
   const uploadAvatar = () => {
     console.log('kek');
   };
@@ -18,27 +33,47 @@ const Profile: FC = () => {
       const decode: any = jwtDecode(token);
 
       if (decode.image) {
-        setAvatar(decode.image);
+        setUser({ ...user, avatar: decode.image });
       }
     }
-  }, []);
+  }, [user?.avatar]);
 
   return (
     <div className='profile container'>
       <h1 className='profile-title'>Профиль</h1>
       <div className='profile-info'>
         <div className='profile-avatar'>
-          {avatar ? <img src={avatar} alt='kek' /> : <AccountCircleIcon />}
-          <Button handleClick={uploadAvatar}>
+          {user?.avatar ? <img src={user?.avatar} alt='kek' /> : <AccountCircleIcon />}
+          <Button handleClick={() => {}}>
             <span>Загрузить аватар</span>
           </Button>
         </div>
         <div className='profile-form'>
-          <LabelInput value='' type='text' handleChange={uploadAvatar} label='ФИО' />
-          <LabelInput value='' type='email' handleChange={uploadAvatar} label='Почта' />
+          <LabelInput
+            value={user.fio}
+            type='text'
+            handleChange={(e: ChangeEvent<HTMLInputElement>) => setUser({ ...user, fio: e.target.value })}
+            label='ФИО'
+          />
+          <LabelInput
+            value={user?.mail}
+            type='email'
+            handleChange={(e: ChangeEvent<HTMLInputElement>) => setUser({ ...user, mail: e.target.value })}
+            label='Почта'
+          />
           <div className='profile-form__password'>
-            <LabelInput value='' type='password' handleChange={uploadAvatar} label='Пароль' />
-            <LabelInput value='' type='password' handleChange={uploadAvatar} label='Еще раз' />
+            <LabelInput
+              value={user?.password}
+              type='password'
+              handleChange={(e: ChangeEvent<HTMLInputElement>) => setUser({ ...user, password: e.target.value })}
+              label='Пароль'
+            />
+            <LabelInput
+              value={user?.confirmPass}
+              type='password'
+              handleChange={(e: ChangeEvent<HTMLInputElement>) => setUser({ ...user, confirmPass: e.target.value })}
+              label='Еще раз'
+            />
           </div>
           <Button handleClick={uploadAvatar}>
             <span>Сохранить изменения</span>
