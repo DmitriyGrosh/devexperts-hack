@@ -1,62 +1,41 @@
-import React, { FC, useState, useEffect } from 'react';
-import Column from '../../features/main.table/Column';
-import Row from '../../features/main.table/Row';
-import Title, { Types } from '../../features/main.table/Title';
+/* eslint-disable react/display-name */
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
+
+import MainTable from '../../features/main.table/MainTable';
+import { setUserStockThunk } from '../../features/main.table/model/stock.thunk';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import Search from '../../features/searcher/ui/search';
 
+import Title, { Types } from '../../shared/ui/table.title/Title';
+
 import './style.scss';
-import axios from 'axios';
+import { filterStockNames, filterUserStocks } from '../../features/tools/model/stock.slice';
 
 const Main: FC = () => {
-  const [activeFolder, setActiveFolder] = useState<Types>('Отслеживаемое');
+  const [activeFolder, setActiveFolder] = useState<Types>('Портфель');
+  const [searchValue, setSearchValue] = useState<string>('');
   const changeFolderHandle = (folder: Types) => {
     setActiveFolder(folder);
   };
-
+  const { stocksNames, userStocks } = useAppSelector((state) => state.stocks);
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    // axios
-    //   .get(
-    //     // eslint-disable-next-line max-len
-    // eslint-disable-next-line max-len
-    //     `${process.env.REACT_APP_SERVER}yahoo-finance/tickers/info/AAPL%2CMSFT%2CGOOG%2CAMZN%2CTSLA%2CNVDA%2CFB%2CTSM%2CUNH%2CJNJ%2CV%2CWMT%2CBAC%2CPG%2CHD%2CMA%2CXOM%2CCVX%2CPFE%2CBABA`,
-    //   )
-    //   .then((data) => console.log('==========>data', JSON.stringify(data)));
+    dispatch(setUserStockThunk());
   }, []);
-
-  // http://www.astra-dev.site:3000/yahoo-finance/tickers/info/AAPL
-  // http://www.astra-dev.site:3000/yahoo-finance/tickers/info/AAPL
+  const filterStocks = (e: ChangeEvent<HTMLInputElement>) => {
+    const searchVal: string = e.target.value;
+    setSearchValue(searchVal);
+    if (activeFolder === 'Портфель') {
+      dispatch(filterUserStocks(searchValue));
+    } else {
+      dispatch(filterStockNames(searchValue));
+    }
+  };
   return (
     <div className='container main'>
-      <Search />
+      <Search searchValue={searchValue} filterStocks={filterStocks} />
       <Title changeFolderHandle={changeFolderHandle} folder={activeFolder} />
-      <div className='main-table'>
-        <div className='main-table__columns'>
-          <Column />
-        </div>
-        <div className='main-table__rows'>
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-          <Row rowItem={{ id: 1 }} />
-        </div>
-      </div>
+      <MainTable stockArray={activeFolder === 'Портфель' ? userStocks : stocksNames} folder={activeFolder} />
     </div>
   );
 };

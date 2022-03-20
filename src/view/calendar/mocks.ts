@@ -117,7 +117,7 @@ export const timestamps = {
   },
 };
 
-const data = [
+export const data = [
   {
     shortName: 'Apple Inc.',
     longName: 'Apple Inc.',

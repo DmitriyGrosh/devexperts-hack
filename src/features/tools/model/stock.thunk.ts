@@ -1,8 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { UserStock } from '../../../shared/ui/row/Row';
 
 interface IResponse {
-  data: Array<{ id: string }>;
+  data: Array<UserStock>;
 }
 
 export const setStockThunk = createAsyncThunk('stocks/setStockThunk', async () => {
