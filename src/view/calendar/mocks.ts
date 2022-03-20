@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { nanoid } from 'nanoid';
 
 const { scheduler } = window;
 
@@ -116,21 +117,264 @@ export const timestamps = {
   },
 };
 
+const data = [
+  {
+    shortName: 'Apple Inc.',
+    longName: 'Apple Inc.',
+    symbol: 'AAPL',
+    dividends: [
+      { date: '2021-08-06', dividendPrice: 0.22, symbol: 'AAPL' },
+      { date: '2021-05-07', dividendPrice: 0.22, symbol: 'AAPL' },
+      { date: '2021-02-05', dividendPrice: 0.21, symbol: 'AAPL' },
+      { date: '2020-11-06', dividendPrice: 0.21, symbol: 'AAPL' },
+      { date: '2020-08-07', dividendPrice: 0.82, symbol: 'AAPL' },
+      { date: '2020-05-08', dividendPrice: 0.82, symbol: 'AAPL' },
+    ],
+    currentPrice: 163.98,
+  },
+  {
+    shortName: 'Microsoft Corporation',
+    longName: 'Microsoft Corporation',
+    symbol: 'MSFT',
+    dividends: [
+      { date: '2021-11-17', dividendPrice: 0.62, symbol: 'MSFT' },
+      { date: '2021-08-18', dividendPrice: 0.56, symbol: 'MSFT' },
+      { date: '2021-05-19', dividendPrice: 0.56, symbol: 'MSFT' },
+      { date: '2021-02-17', dividendPrice: 0.56, symbol: 'MSFT' },
+      { date: '2020-11-18', dividendPrice: 0.56, symbol: 'MSFT' },
+      { date: '2020-08-19', dividendPrice: 0.51, symbol: 'MSFT' },
+      { date: '2020-05-20', dividendPrice: 0.51, symbol: 'MSFT' },
+    ],
+    currentPrice: 300.43,
+  },
+  { shortName: 'Alphabet Inc.', longName: 'Alphabet Inc.', symbol: 'GOOG', currentPrice: 2736.03 },
+  { shortName: 'Amazon.com, Inc.', longName: 'Amazon.com, Inc.', symbol: 'AMZN', currentPrice: 3225.01 },
+  { shortName: 'Tesla, Inc.', longName: 'Tesla, Inc.', symbol: 'TSLA', currentPrice: 905.39 },
+  {
+    shortName: 'NVIDIA Corporation',
+    longName: 'NVIDIA Corporation',
+    symbol: 'NVDA',
+    dividends: [
+      { date: '2021-08-31', dividendPrice: 0.04, symbol: 'NVDA' },
+      { date: '2021-06-09', dividendPrice: 0.16, symbol: 'NVDA' },
+      { date: '2021-03-09', dividendPrice: 0.16, symbol: 'NVDA' },
+      { date: '2020-12-03', dividendPrice: 0.16, symbol: 'NVDA' },
+      { date: '2020-09-01', dividendPrice: 0.16, symbol: 'NVDA' },
+      { date: '2020-06-04', dividendPrice: 0.16, symbol: 'NVDA' },
+    ],
+    currentPrice: 264.53,
+  },
+  { shortName: 'Meta Platforms, Inc.', longName: 'Meta Platforms, Inc.', symbol: 'FB', currentPrice: 216.49 },
+  {
+    shortName: 'Taiwan Semiconductor Manufactur',
+    longName: 'Taiwan Semiconductor Manufacturing Company Limited',
+    symbol: 'TSM',
+    dividends: [
+      { date: '2021-12-16', dividendPrice: 0.4677, symbol: 'TSM' },
+      { date: '2021-09-16', dividendPrice: 0.5, symbol: 'TSM' },
+      { date: '2021-06-17', dividendPrice: 0.45, symbol: 'TSM' },
+      { date: '2021-03-17', dividendPrice: 0.45, symbol: 'TSM' },
+      { date: '2020-12-17', dividendPrice: 0.44, symbol: 'TSM' },
+      { date: '2020-09-17', dividendPrice: 0.43, symbol: 'TSM' },
+      { date: '2020-06-18', dividendPrice: 0.42, symbol: 'TSM' },
+      { date: '2020-03-19', dividendPrice: 0.42, symbol: 'TSM' },
+    ],
+    currentPrice: 106.72,
+  },
+  {
+    shortName: 'UnitedHealth Group Incorporated',
+    longName: 'UnitedHealth Group Incorporated',
+    symbol: 'UNH',
+    dividends: [
+      { date: '2021-09-10', dividendPrice: 1.45, symbol: 'UNH' },
+      { date: '2021-06-18', dividendPrice: 1.45, symbol: 'UNH' },
+      { date: '2021-03-12', dividendPrice: 1.25, symbol: 'UNH' },
+      { date: '2020-12-04', dividendPrice: 1.25, symbol: 'UNH' },
+      { date: '2020-09-11', dividendPrice: 1.25, symbol: 'UNH' },
+      { date: '2020-06-19', dividendPrice: 1.25, symbol: 'UNH' },
+      { date: '2020-03-13', dividendPrice: 1.08, symbol: 'UNH' },
+    ],
+    currentPrice: 506.12,
+  },
+  {
+    shortName: 'Johnson & Johnson',
+    longName: 'Johnson & Johnson',
+    symbol: 'JNJ',
+    dividends: [
+      { date: '2021-08-23', dividendPrice: 1.06, symbol: 'JNJ' },
+      { date: '2021-05-24', dividendPrice: 1.06, symbol: 'JNJ' },
+      { date: '2021-02-22', dividendPrice: 1.01, symbol: 'JNJ' },
+      { date: '2020-11-23', dividendPrice: 1.01, symbol: 'JNJ' },
+      { date: '2020-08-24', dividendPrice: 1.01, symbol: 'JNJ' },
+      { date: '2020-05-22', dividendPrice: 1.01, symbol: 'JNJ' },
+    ],
+    currentPrice: 174.84,
+  },
+  {
+    shortName: 'Visa Inc.',
+    longName: 'Visa Inc.',
+    symbol: 'V',
+    dividends: [
+      { date: '2021-08-12', dividendPrice: 0.32, symbol: 'V' },
+      { date: '2021-05-13', dividendPrice: 0.32, symbol: 'V' },
+      { date: '2021-02-11', dividendPrice: 0.32, symbol: 'V' },
+      { date: '2020-11-12', dividendPrice: 0.32, symbol: 'V' },
+      { date: '2020-08-13', dividendPrice: 0.3, symbol: 'V' },
+      { date: '2020-05-13', dividendPrice: 0.3, symbol: 'V' },
+    ],
+    currentPrice: 219.11,
+  },
+  {
+    shortName: 'Walmart Inc.',
+    longName: 'Walmart Inc.',
+    symbol: 'WMT',
+    dividends: [
+      { date: '2021-12-09', dividendPrice: 0.55, symbol: 'WMT' },
+      { date: '2021-08-12', dividendPrice: 0.55, symbol: 'WMT' },
+      { date: '2021-05-06', dividendPrice: 0.55, symbol: 'WMT' },
+      { date: '2021-03-18', dividendPrice: 0.55, symbol: 'WMT' },
+      { date: '2020-12-10', dividendPrice: 0.54, symbol: 'WMT' },
+      { date: '2020-08-13', dividendPrice: 0.54, symbol: 'WMT' },
+      { date: '2020-05-07', dividendPrice: 0.54, symbol: 'WMT' },
+      { date: '2020-03-19', dividendPrice: 0.54, symbol: 'WMT' },
+    ],
+    currentPrice: 145.44,
+  },
+  {
+    shortName: 'Bank of America Corporation',
+    longName: 'Bank of America Corporation',
+    symbol: 'BAC',
+    dividends: [
+      { date: '2021-09-02', dividendPrice: 0.21, symbol: 'BAC' },
+      { date: '2021-06-03', dividendPrice: 0.18, symbol: 'BAC' },
+      { date: '2021-03-04', dividendPrice: 0.18, symbol: 'BAC' },
+      { date: '2020-12-03', dividendPrice: 0.18, symbol: 'BAC' },
+      { date: '2020-09-03', dividendPrice: 0.18, symbol: 'BAC' },
+      { date: '2020-06-04', dividendPrice: 0.18, symbol: 'BAC' },
+    ],
+    currentPrice: 42.9,
+  },
+  {
+    shortName: 'Procter & Gamble Company (The)',
+    longName: 'The Procter & Gamble Company',
+    symbol: 'PG',
+    dividends: [
+      { date: '2021-10-21', dividendPrice: 0.8698, symbol: 'PG' },
+      { date: '2021-07-22', dividendPrice: 0.87, symbol: 'PG' },
+      { date: '2021-04-22', dividendPrice: 0.87, symbol: 'PG' },
+      { date: '2021-01-21', dividendPrice: 0.79, symbol: 'PG' },
+      { date: '2020-10-22', dividendPrice: 0.79, symbol: 'PG' },
+      { date: '2020-07-23', dividendPrice: 0.79, symbol: 'PG' },
+      { date: '2020-04-23', dividendPrice: 0.79, symbol: 'PG' },
+    ],
+    currentPrice: 150.15,
+  },
+  {
+    shortName: 'Home Depot, Inc. (The)',
+    longName: 'The Home Depot, Inc.',
+    symbol: 'HD',
+    dividends: [
+      { date: '2021-09-01', dividendPrice: 1.65, symbol: 'HD' },
+      { date: '2021-06-02', dividendPrice: 1.65, symbol: 'HD' },
+      { date: '2021-03-10', dividendPrice: 1.65, symbol: 'HD' },
+      { date: '2020-12-02', dividendPrice: 1.5, symbol: 'HD' },
+      { date: '2020-09-02', dividendPrice: 1.5, symbol: 'HD' },
+      { date: '2020-06-03', dividendPrice: 1.5, symbol: 'HD' },
+      { date: '2020-03-11', dividendPrice: 1.5, symbol: 'HD' },
+    ],
+    currentPrice: 340.74,
+  },
+  {
+    shortName: 'Mastercard Incorporated',
+    longName: 'Mastercard Incorporated',
+    symbol: 'MA',
+    dividends: [
+      { date: '2021-10-07', dividendPrice: 0.44, symbol: 'MA' },
+      { date: '2021-07-08', dividendPrice: 0.44, symbol: 'MA' },
+      { date: '2021-04-08', dividendPrice: 0.44, symbol: 'MA' },
+      { date: '2021-01-07', dividendPrice: 0.44, symbol: 'MA' },
+      { date: '2020-10-08', dividendPrice: 0.4, symbol: 'MA' },
+      { date: '2020-07-08', dividendPrice: 0.4, symbol: 'MA' },
+      { date: '2020-04-08', dividendPrice: 0.4, symbol: 'MA' },
+    ],
+    currentPrice: 350.09,
+  },
+  {
+    shortName: 'Exxon Mobil Corporation',
+    longName: 'Exxon Mobil Corporation',
+    symbol: 'XOM',
+    dividends: [
+      { date: '2021-08-12', dividendPrice: 0.87, symbol: 'XOM' },
+      { date: '2021-05-12', dividendPrice: 0.87, symbol: 'XOM' },
+      { date: '2021-02-09', dividendPrice: 0.87, symbol: 'XOM' },
+      { date: '2020-11-10', dividendPrice: 0.87, symbol: 'XOM' },
+      { date: '2020-08-12', dividendPrice: 0.87, symbol: 'XOM' },
+      { date: '2020-05-12', dividendPrice: 0.87, symbol: 'XOM' },
+    ],
+    currentPrice: 78.67,
+  },
+  {
+    shortName: 'Chevron Corporation',
+    longName: 'Chevron Corporation',
+    symbol: 'CVX',
+    dividends: [
+      { date: '2021-08-18', dividendPrice: 1.34, symbol: 'CVX' },
+      { date: '2021-05-18', dividendPrice: 1.34, symbol: 'CVX' },
+      { date: '2021-02-16', dividendPrice: 1.29, symbol: 'CVX' },
+      { date: '2020-11-17', dividendPrice: 1.29, symbol: 'CVX' },
+      { date: '2020-08-18', dividendPrice: 1.29, symbol: 'CVX' },
+      { date: '2020-05-18', dividendPrice: 1.29, symbol: 'CVX' },
+    ],
+    currentPrice: 161.73,
+  },
+  {
+    shortName: 'Pfizer, Inc.',
+    longName: 'Pfizer Inc.',
+    symbol: 'PFE',
+    dividends: [
+      { date: '2021-11-04', dividendPrice: 0.39, symbol: 'PFE' },
+      { date: '2021-07-29', dividendPrice: 0.39, symbol: 'PFE' },
+      { date: '2021-05-06', dividendPrice: 0.39, symbol: 'PFE' },
+      { date: '2021-01-28', dividendPrice: 0.39, symbol: 'PFE' },
+      { date: '2020-11-05', dividendPrice: 0.38, symbol: 'PFE' },
+      { date: '2020-07-30', dividendPrice: 0.38, symbol: 'PFE' },
+      { date: '2020-05-07', dividendPrice: 0.38, symbol: 'PFE' },
+    ],
+    currentPrice: 54.51,
+  },
+  {
+    shortName: 'Alibaba Group Holding Limited',
+    longName: 'Alibaba Group Holding Limited',
+    symbol: 'BABA',
+    currentPrice: 108.3,
+  },
+];
+
 const parseDate = scheduler.date.str_to_date('%Y-%m-%d');
 
-export const events = divedens.map((el, id) => {
-  const startTime = '10:30';
-  const endTime = '16:00';
-  const date = moment(el.date).format('YYYY-MM-DD');
-  const startDateTime = moment(`${date} ${startTime}`).format();
-  const endDateTime = moment(`${date} ${endTime}`).format();
-  return {
-    ...el,
-    id: id + 1,
-    count: id + 1,
-    color: '#5142AB',
-    start_date: startDateTime,
-    end_date: endDateTime,
-    text: `диведенды компании ${el.symbol}`,
-  };
+export const events = data.map((elem) => {
+  if (elem.dividends) {
+    const newArr = elem.dividends.map((el, id) => {
+      const startTime = '10:30';
+      const endTime = '16:00';
+      const date = moment(el.date).format('YYYY-MM-DD');
+      const startDateTime = moment(`${date} ${startTime}`).format();
+      const endDateTime = moment(`${date} ${endTime}`).format();
+      return {
+        ...el,
+        id: nanoid(),
+        count: id + 1,
+        color: '#5142AB',
+        start_date: startDateTime,
+        end_date: endDateTime,
+        text: `диведенды компании ${el.symbol}`,
+      };
+    });
+
+    return {
+      ...elem,
+      dividends: newArr,
+    };
+  }
+  return elem;
 });

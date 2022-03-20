@@ -31,11 +31,11 @@ const Tools: FC = () => {
   const { stocksNames, activeStocks } = useAppSelector((state) => state.stocks);
   const dispatch = useAppDispatch();
 
-  const handleSetSearch = (event: { id: string }) => {
+  const handleSetSearch = (event: { symbol: string }) => {
     dispatch(setActiveStock(event));
   };
 
-  const handleDelete = (stock: { id: string }) => {
+  const handleDelete = (stock: { symbol: string }) => {
     dispatch(deleteStock(stock));
   };
 
@@ -49,7 +49,7 @@ const Tools: FC = () => {
       <AutocompleteStocks stocks={stocksNames} handleSetSearch={handleSetSearch} />
       <div className='chips-container'>
         {activeStocks.map((stock) => (
-          <Chips handleDelete={() => handleDelete(stock)}>{stock.id}</Chips>
+          <Chips handleDelete={() => handleDelete(stock)}>{stock.symbol}</Chips>
         ))}
       </div>
     </div>

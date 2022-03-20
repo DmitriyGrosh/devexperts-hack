@@ -4,12 +4,12 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
 interface IProps {
-  stocks: { id: string }[];
-  handleSetSearch: (event: { id: string }) => void;
+  stocks: { symbol: string }[];
+  handleSetSearch: (event: { symbol: string }) => void;
 }
 
 const AutocompleteStocks: FC<IProps> = ({ stocks, handleSetSearch }) => {
-  const [value, setValue] = useState<{ id: string } | null>(null);
+  const [value, setValue] = useState<{ symbol: string } | null>(null);
   const [inputValue, setInputValue] = useState<string>('');
 
   console.log('==========>value', value);
@@ -28,7 +28,7 @@ const AutocompleteStocks: FC<IProps> = ({ stocks, handleSetSearch }) => {
           setInputValue(newInputValue);
         }}
         id='controllable-states-demo'
-        getOptionLabel={(option) => option.id}
+        getOptionLabel={(option) => option.symbol}
         options={stocks}
         sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label='Controllable' />}

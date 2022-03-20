@@ -5,7 +5,7 @@ import Button from '../../shared/ui/button/Button';
 
 interface IFooter {
   handleCLick: () => void;
-  id: number;
+  id: string;
 }
 
 const Footer: FC<IFooter> = ({ handleCLick, id }) => {
