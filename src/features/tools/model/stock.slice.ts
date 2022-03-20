@@ -66,8 +66,8 @@ const initialState = {
           start_date: '2021-08-06T07:30:00.000Z',
           end_date: '2021-08-06T13:00:00.000Z',
           text: 'диведенды компании AAPL',
-          id: 1647733825320,
-          _timed: true,
+          recoverDays: Math.ceil(Math.random() * 10),
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-05-07',
@@ -78,8 +78,8 @@ const initialState = {
           start_date: '2021-05-07T07:30:00.000Z',
           end_date: '2021-05-07T13:00:00.000Z',
           text: 'диведенды компании AAPL',
-          id: 1647733825321,
-          _timed: true,
+          recoverDays: Math.ceil(Math.random() * 10),
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-02-05',
@@ -91,7 +91,7 @@ const initialState = {
           end_date: '2021-02-05T13:00:00.000Z',
           text: 'диведенды компании AAPL',
           id: 1647733825322,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-11-06',
@@ -103,7 +103,7 @@ const initialState = {
           end_date: '2020-11-06T13:00:00.000Z',
           text: 'диведенды компании AAPL',
           id: 1647733825323,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-08-07',
@@ -115,7 +115,7 @@ const initialState = {
           end_date: '2020-08-07T13:00:00.000Z',
           text: 'диведенды компании AAPL',
           id: 1647733825324,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-05-08',
@@ -127,7 +127,7 @@ const initialState = {
           end_date: '2020-05-08T13:00:00.000Z',
           text: 'диведенды компании AAPL',
           id: 1647733825325,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 163.98,
@@ -147,7 +147,7 @@ const initialState = {
           end_date: '2021-11-17T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825326,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-08-18',
@@ -159,7 +159,7 @@ const initialState = {
           end_date: '2021-08-18T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825327,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-05-19',
@@ -171,7 +171,7 @@ const initialState = {
           end_date: '2021-05-19T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825328,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-02-17',
@@ -183,7 +183,7 @@ const initialState = {
           end_date: '2021-02-17T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825329,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-11-18',
@@ -195,7 +195,7 @@ const initialState = {
           end_date: '2020-11-18T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825330,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-08-19',
@@ -207,7 +207,7 @@ const initialState = {
           end_date: '2020-08-19T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825331,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-05-20',
@@ -219,7 +219,7 @@ const initialState = {
           end_date: '2020-05-20T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825332,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 300.43,
@@ -235,6 +235,7 @@ const initialState = {
         {
           date: '2021-08-31',
           dividendPrice: 0.04,
+          recoverDays: Math.ceil(Math.random() * 10),
           symbol: 'NVDA',
           count: 6,
           color: '#5142AB',
@@ -242,7 +243,7 @@ const initialState = {
           end_date: '2021-08-31T13:00:00.000Z',
           text: 'диведенды компании NVDA',
           id: 1647733825333,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-06-09',
@@ -254,7 +255,7 @@ const initialState = {
           end_date: '2021-06-09T13:00:00.000Z',
           text: 'диведенды компании NVDA',
           id: 1647733825334,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-03-09',
@@ -266,7 +267,7 @@ const initialState = {
           end_date: '2021-03-09T13:00:00.000Z',
           text: 'диведенды компании NVDA',
           id: 1647733825335,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-12-03',
@@ -278,7 +279,7 @@ const initialState = {
           end_date: '2020-12-03T13:00:00.000Z',
           text: 'диведенды компании NVDA',
           id: 1647733825336,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-09-01',
@@ -290,7 +291,7 @@ const initialState = {
           end_date: '2020-09-01T13:00:00.000Z',
           text: 'диведенды компании NVDA',
           id: 1647733825337,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-06-04',
@@ -302,7 +303,7 @@ const initialState = {
           end_date: '2020-06-04T13:00:00.000Z',
           text: 'диведенды компании NVDA',
           id: 1647733825338,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 264.53,
@@ -316,6 +317,7 @@ const initialState = {
         {
           date: '2021-12-16',
           dividendPrice: 0.4677,
+          recoverDays: Math.ceil(Math.random() * 10),
           symbol: 'TSM',
           count: 8,
           color: '#5142AB',
@@ -323,7 +325,7 @@ const initialState = {
           end_date: '2021-12-16T13:00:00.000Z',
           text: 'диведенды компании TSM',
           id: 1647733825339,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-09-16',
@@ -335,7 +337,7 @@ const initialState = {
           end_date: '2021-09-16T13:00:00.000Z',
           text: 'диведенды компании TSM',
           id: 1647733825340,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-06-17',
@@ -347,7 +349,7 @@ const initialState = {
           end_date: '2021-06-17T13:00:00.000Z',
           text: 'диведенды компании TSM',
           id: 1647733825341,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-03-17',
@@ -359,7 +361,7 @@ const initialState = {
           end_date: '2021-03-17T13:00:00.000Z',
           text: 'диведенды компании TSM',
           id: 1647733825342,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-12-17',
@@ -371,7 +373,7 @@ const initialState = {
           end_date: '2020-12-17T13:00:00.000Z',
           text: 'диведенды компании TSM',
           id: 1647733825343,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-09-17',
@@ -383,7 +385,7 @@ const initialState = {
           end_date: '2020-09-17T13:00:00.000Z',
           text: 'диведенды компании TSM',
           id: 1647733825344,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-06-18',
@@ -395,7 +397,7 @@ const initialState = {
           end_date: '2020-06-18T13:00:00.000Z',
           text: 'диведенды компании TSM',
           id: 1647733825345,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-03-19',
@@ -407,7 +409,7 @@ const initialState = {
           end_date: '2020-03-19T13:00:00.000Z',
           text: 'диведенды компании TSM',
           id: 1647733825346,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 106.72,
@@ -419,6 +421,7 @@ const initialState = {
       dividends: [
         {
           date: '2021-09-10',
+          recoverDays: Math.ceil(Math.random() * 10),
           dividendPrice: 1.45,
           symbol: 'UNH',
           count: 9,
@@ -427,7 +430,7 @@ const initialState = {
           end_date: '2021-09-10T13:00:00.000Z',
           text: 'диведенды компании UNH',
           id: 1647733825347,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-06-18',
@@ -439,7 +442,7 @@ const initialState = {
           end_date: '2021-06-18T13:00:00.000Z',
           text: 'диведенды компании UNH',
           id: 1647733825348,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-03-12',
@@ -451,7 +454,7 @@ const initialState = {
           end_date: '2021-03-12T13:00:00.000Z',
           text: 'диведенды компании UNH',
           id: 1647733825349,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-12-04',
@@ -463,7 +466,7 @@ const initialState = {
           end_date: '2020-12-04T13:00:00.000Z',
           text: 'диведенды компании UNH',
           id: 1647733825350,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-09-11',
@@ -475,7 +478,7 @@ const initialState = {
           end_date: '2020-09-11T13:00:00.000Z',
           text: 'диведенды компании UNH',
           id: 1647733825351,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-06-19',
@@ -487,7 +490,7 @@ const initialState = {
           end_date: '2020-06-19T13:00:00.000Z',
           text: 'диведенды компании UNH',
           id: 1647733825352,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-03-13',
@@ -499,7 +502,7 @@ const initialState = {
           end_date: '2020-03-13T13:00:00.000Z',
           text: 'диведенды компании UNH',
           id: 1647733825353,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 506.12,
@@ -512,6 +515,7 @@ const initialState = {
         {
           date: '2021-08-23',
           dividendPrice: 1.06,
+          recoverDays: Math.ceil(Math.random() * 10),
           symbol: 'JNJ',
           count: 10,
           color: '#5142AB',
@@ -519,7 +523,7 @@ const initialState = {
           end_date: '2021-08-23T13:00:00.000Z',
           text: 'диведенды компании JNJ',
           id: 1647733825354,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-05-24',
@@ -531,7 +535,7 @@ const initialState = {
           end_date: '2021-05-24T13:00:00.000Z',
           text: 'диведенды компании JNJ',
           id: 1647733825355,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-02-22',
@@ -543,7 +547,7 @@ const initialState = {
           end_date: '2021-02-22T13:00:00.000Z',
           text: 'диведенды компании JNJ',
           id: 1647733825356,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-11-23',
@@ -555,7 +559,7 @@ const initialState = {
           end_date: '2020-11-23T13:00:00.000Z',
           text: 'диведенды компании JNJ',
           id: 1647733825357,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-08-24',
@@ -567,7 +571,7 @@ const initialState = {
           end_date: '2020-08-24T13:00:00.000Z',
           text: 'диведенды компании JNJ',
           id: 1647733825358,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-05-22',
@@ -579,7 +583,7 @@ const initialState = {
           end_date: '2020-05-22T13:00:00.000Z',
           text: 'диведенды компании JNJ',
           id: 1647733825359,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 174.84,
@@ -591,6 +595,7 @@ const initialState = {
       dividends: [
         {
           date: '2021-08-12',
+          recoverDays: Math.ceil(Math.random() * 10),
           dividendPrice: 0.32,
           symbol: 'V',
           count: 11,
@@ -599,7 +604,7 @@ const initialState = {
           end_date: '2021-08-12T13:00:00.000Z',
           text: 'диведенды компании V',
           id: 1647733825360,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-05-13',
@@ -611,7 +616,7 @@ const initialState = {
           end_date: '2021-05-13T13:00:00.000Z',
           text: 'диведенды компании V',
           id: 1647733825361,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-02-11',
@@ -623,7 +628,7 @@ const initialState = {
           end_date: '2021-02-11T13:00:00.000Z',
           text: 'диведенды компании V',
           id: 1647733825362,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-11-12',
@@ -635,7 +640,7 @@ const initialState = {
           end_date: '2020-11-12T13:00:00.000Z',
           text: 'диведенды компании V',
           id: 1647733825363,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-08-13',
@@ -647,7 +652,7 @@ const initialState = {
           end_date: '2020-08-13T13:00:00.000Z',
           text: 'диведенды компании V',
           id: 1647733825364,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-05-13',
@@ -659,7 +664,7 @@ const initialState = {
           end_date: '2020-05-13T13:00:00.000Z',
           text: 'диведенды компании V',
           id: 1647733825365,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 219.11,
@@ -671,6 +676,7 @@ const initialState = {
       dividends: [
         {
           date: '2021-12-09',
+          recoverDays: Math.ceil(Math.random() * 10),
           dividendPrice: 0.55,
           symbol: 'WMT',
           count: 12,
@@ -679,7 +685,7 @@ const initialState = {
           end_date: '2021-12-09T13:00:00.000Z',
           text: 'диведенды компании WMT',
           id: 1647733825366,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-08-12',
@@ -691,7 +697,7 @@ const initialState = {
           end_date: '2021-08-12T13:00:00.000Z',
           text: 'диведенды компании WMT',
           id: 1647733825367,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-05-06',
@@ -703,7 +709,7 @@ const initialState = {
           end_date: '2021-05-06T13:00:00.000Z',
           text: 'диведенды компании WMT',
           id: 1647733825368,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-03-18',
@@ -715,7 +721,7 @@ const initialState = {
           end_date: '2021-03-18T13:00:00.000Z',
           text: 'диведенды компании WMT',
           id: 1647733825369,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-12-10',
@@ -727,7 +733,7 @@ const initialState = {
           end_date: '2020-12-10T13:00:00.000Z',
           text: 'диведенды компании WMT',
           id: 1647733825370,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-08-13',
@@ -739,7 +745,7 @@ const initialState = {
           end_date: '2020-08-13T13:00:00.000Z',
           text: 'диведенды компании WMT',
           id: 1647733825371,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-05-07',
@@ -751,7 +757,7 @@ const initialState = {
           end_date: '2020-05-07T13:00:00.000Z',
           text: 'диведенды компании WMT',
           id: 1647733825372,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-03-19',
@@ -763,7 +769,7 @@ const initialState = {
           end_date: '2020-03-19T13:00:00.000Z',
           text: 'диведенды компании WMT',
           id: 1647733825373,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 145.44,
@@ -776,6 +782,7 @@ const initialState = {
         {
           date: '2021-09-02',
           dividendPrice: 0.21,
+          recoverDays: Math.ceil(Math.random() * 10),
           symbol: 'BAC',
           count: 13,
           color: '#5142AB',
@@ -783,7 +790,7 @@ const initialState = {
           end_date: '2021-09-02T13:00:00.000Z',
           text: 'диведенды компании BAC',
           id: 1647733825374,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-06-03',
@@ -795,7 +802,7 @@ const initialState = {
           end_date: '2021-06-03T13:00:00.000Z',
           text: 'диведенды компании BAC',
           id: 1647733825375,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-03-04',
@@ -807,7 +814,7 @@ const initialState = {
           end_date: '2021-03-04T13:00:00.000Z',
           text: 'диведенды компании BAC',
           id: 1647733825376,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-12-03',
@@ -819,7 +826,7 @@ const initialState = {
           end_date: '2020-12-03T13:00:00.000Z',
           text: 'диведенды компании BAC',
           id: 1647733825377,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-09-03',
@@ -831,7 +838,7 @@ const initialState = {
           end_date: '2020-09-03T13:00:00.000Z',
           text: 'диведенды компании BAC',
           id: 1647733825378,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-06-04',
@@ -843,7 +850,7 @@ const initialState = {
           end_date: '2020-06-04T13:00:00.000Z',
           text: 'диведенды компании BAC',
           id: 1647733825379,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 42.9,
@@ -855,6 +862,7 @@ const initialState = {
       dividends: [
         {
           date: '2021-10-21',
+          recoverDays: Math.ceil(Math.random() * 10),
           dividendPrice: 0.8698,
           symbol: 'PG',
           count: 14,
@@ -863,7 +871,7 @@ const initialState = {
           end_date: '2021-10-21T13:00:00.000Z',
           text: 'диведенды компании PG',
           id: 1647733825380,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-07-22',
@@ -875,7 +883,7 @@ const initialState = {
           end_date: '2021-07-22T13:00:00.000Z',
           text: 'диведенды компании PG',
           id: 1647733825381,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-04-22',
@@ -887,7 +895,7 @@ const initialState = {
           end_date: '2021-04-22T13:00:00.000Z',
           text: 'диведенды компании MA',
           id: 1647733825398,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-07-08',
@@ -899,7 +907,7 @@ const initialState = {
           end_date: '2020-07-08T13:00:00.000Z',
           text: 'диведенды компании MA',
           id: 1647733825399,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-04-08',
@@ -911,7 +919,7 @@ const initialState = {
           end_date: '2020-04-08T13:00:00.000Z',
           text: 'диведенды компании MA',
           id: 1647733825400,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 350.09,
@@ -926,12 +934,13 @@ const initialState = {
           dividendPrice: 0.87,
           symbol: 'XOM',
           count: 17,
+          recoverDays: Math.ceil(Math.random() * 10),
           color: '#5142AB',
           start_date: '2021-08-12T07:30:00.000Z',
           end_date: '2021-08-12T13:00:00.000Z',
           text: 'диведенды компании XOM',
           id: 1647733825401,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-05-12',
@@ -943,7 +952,7 @@ const initialState = {
           end_date: '2021-05-12T13:00:00.000Z',
           text: 'диведенды компании XOM',
           id: 1647733825402,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-02-09',
@@ -955,7 +964,7 @@ const initialState = {
           end_date: '2021-02-09T13:00:00.000Z',
           text: 'диведенды компании XOM',
           id: 1647733825403,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-11-10',
@@ -967,7 +976,7 @@ const initialState = {
           end_date: '2020-11-10T13:00:00.000Z',
           text: 'диведенды компании XOM',
           id: 1647733825404,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-08-12',
@@ -979,7 +988,7 @@ const initialState = {
           end_date: '2020-08-12T13:00:00.000Z',
           text: 'диведенды компании XOM',
           id: 1647733825405,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-05-12',
@@ -991,7 +1000,7 @@ const initialState = {
           end_date: '2020-05-12T13:00:00.000Z',
           text: 'диведенды компании XOM',
           id: 1647733825406,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 78.67,
@@ -1006,12 +1015,13 @@ const initialState = {
           dividendPrice: 1.34,
           symbol: 'CVX',
           count: 18,
+          recoverDays: Math.ceil(Math.random() * 10),
           color: '#5142AB',
           start_date: '2021-08-18T07:30:00.000Z',
           end_date: '2021-08-18T13:00:00.000Z',
           text: 'диведенды компании CVX',
           id: 1647733825407,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-05-18',
@@ -1023,7 +1033,7 @@ const initialState = {
           end_date: '2021-05-18T13:00:00.000Z',
           text: 'диведенды компании CVX',
           id: 1647733825408,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-02-16',
@@ -1035,7 +1045,7 @@ const initialState = {
           end_date: '2021-02-16T13:00:00.000Z',
           text: 'диведенды компании CVX',
           id: 1647733825409,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-11-17',
@@ -1047,7 +1057,7 @@ const initialState = {
           end_date: '2020-11-17T13:00:00.000Z',
           text: 'диведенды компании CVX',
           id: 1647733825410,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-08-18',
@@ -1059,7 +1069,7 @@ const initialState = {
           end_date: '2020-08-18T13:00:00.000Z',
           text: 'диведенды компании CVX',
           id: 1647733825411,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-05-18',
@@ -1071,7 +1081,7 @@ const initialState = {
           end_date: '2020-05-18T13:00:00.000Z',
           text: 'диведенды компании CVX',
           id: 1647733825412,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 161.73,
@@ -1083,6 +1093,7 @@ const initialState = {
       dividends: [
         {
           date: '2021-11-04',
+          recoverDays: Math.ceil(Math.random() * 10),
           dividendPrice: 0.39,
           symbol: 'PFE',
           count: 19,
@@ -1091,7 +1102,7 @@ const initialState = {
           end_date: '2021-11-04T13:00:00.000Z',
           text: 'диведенды компании PFE',
           id: 1647733825413,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-07-29',
@@ -1103,7 +1114,7 @@ const initialState = {
           end_date: '2021-07-29T13:00:00.000Z',
           text: 'диведенды компании PFE',
           id: 1647733825414,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-05-06',
@@ -1115,7 +1126,7 @@ const initialState = {
           end_date: '2021-05-06T13:00:00.000Z',
           text: 'диведенды компании PFE',
           id: 1647733825415,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-01-28',
@@ -1127,7 +1138,7 @@ const initialState = {
           end_date: '2021-01-28T13:00:00.000Z',
           text: 'диведенды компании PFE',
           id: 1647733825416,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-11-05',
@@ -1139,7 +1150,7 @@ const initialState = {
           end_date: '2020-11-05T13:00:00.000Z',
           text: 'диведенды компании PFE',
           id: 1647733825417,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-07-30',
@@ -1151,7 +1162,7 @@ const initialState = {
           end_date: '2020-07-30T13:00:00.000Z',
           text: 'диведенды компании PFE',
           id: 1647733825418,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-05-07',
@@ -1163,7 +1174,7 @@ const initialState = {
           end_date: '2020-05-07T13:00:00.000Z',
           text: 'диведенды компании PFE',
           id: 1647733825419,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 54.51,
@@ -1178,6 +1189,7 @@ const initialState = {
       dividends: [
         {
           date: '2021-08-06',
+          recoverDays: Math.ceil(Math.random() * 10),
           dividendPrice: 0.22,
           symbol: 'AAPL',
           count: 1,
@@ -1185,8 +1197,7 @@ const initialState = {
           start_date: '2021-08-06T07:30:00.000Z',
           end_date: '2021-08-06T13:00:00.000Z',
           text: 'диведенды компании AAPL',
-          id: 1647733825320,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-05-07',
@@ -1197,8 +1208,8 @@ const initialState = {
           start_date: '2021-05-07T07:30:00.000Z',
           end_date: '2021-05-07T13:00:00.000Z',
           text: 'диведенды компании AAPL',
-          id: 1647733825321,
-          _timed: true,
+          recoverDays: Math.ceil(Math.random() * 10),
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-02-05',
@@ -1210,7 +1221,7 @@ const initialState = {
           end_date: '2021-02-05T13:00:00.000Z',
           text: 'диведенды компании AAPL',
           id: 1647733825322,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-11-06',
@@ -1222,7 +1233,7 @@ const initialState = {
           end_date: '2020-11-06T13:00:00.000Z',
           text: 'диведенды компании AAPL',
           id: 1647733825323,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-08-07',
@@ -1234,7 +1245,7 @@ const initialState = {
           end_date: '2020-08-07T13:00:00.000Z',
           text: 'диведенды компании AAPL',
           id: 1647733825324,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-05-08',
@@ -1246,7 +1257,7 @@ const initialState = {
           end_date: '2020-05-08T13:00:00.000Z',
           text: 'диведенды компании AAPL',
           id: 1647733825325,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 163.98,
@@ -1259,6 +1270,7 @@ const initialState = {
         {
           date: '2021-11-17',
           dividendPrice: 0.62,
+
           symbol: 'MSFT',
           count: 2,
           color: '#5142AB',
@@ -1266,7 +1278,7 @@ const initialState = {
           end_date: '2021-11-17T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825326,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-08-18',
@@ -1278,7 +1290,7 @@ const initialState = {
           end_date: '2021-08-18T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825327,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-05-19',
@@ -1290,7 +1302,7 @@ const initialState = {
           end_date: '2021-05-19T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825328,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2021-02-17',
@@ -1302,7 +1314,7 @@ const initialState = {
           end_date: '2021-02-17T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825329,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-11-18',
@@ -1314,7 +1326,7 @@ const initialState = {
           end_date: '2020-11-18T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825330,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-08-19',
@@ -1326,7 +1338,7 @@ const initialState = {
           end_date: '2020-08-19T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825331,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
         {
           date: '2020-05-20',
@@ -1338,7 +1350,7 @@ const initialState = {
           end_date: '2020-05-20T13:00:00.000Z',
           text: 'диведенды компании MSFT',
           id: 1647733825332,
-          _timed: true,
+          gap: Math.random().toFixed(2),
         },
       ],
       currentPrice: 300.43,
@@ -1377,6 +1389,9 @@ export const stockSlice = createSlice({
     filterUserStocks: (state, action: PayloadAction<string>) => {
       state.userStocks = state.userStocks.filter((el) => el.shortName.includes(action.payload));
     },
+    updateUserStock: (state, action: PayloadAction<Array<UserStock>>) => {
+      state.userStocks = action.payload;
+    },
     deleteStock: (state, action: PayloadAction<UserStock>) => {
       state.activeStocks = state.activeStocks.filter((ev) => ev.symbol !== action.payload.symbol);
     },
@@ -1406,6 +1421,7 @@ export const stockSlice = createSlice({
   },
 });
 
-export const { setActiveStock, deleteStock, filterStockNames, filterUserStocks, setCurrentStock } = stockSlice.actions;
+export const { setActiveStock, deleteStock, filterStockNames, filterUserStocks, setCurrentStock, updateUserStock } =
+  stockSlice.actions;
 
 export default stockSlice.reducer;

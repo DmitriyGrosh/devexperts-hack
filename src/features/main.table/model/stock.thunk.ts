@@ -32,7 +32,7 @@ export const addUserStockThunk = createAsyncThunk('stocks/addUserStockThunk', as
 
 export const setUserStockThunk = createAsyncThunk('stocks/setUserStockThunk', async () => {
   const tikers: string = 'AAPL,MSFT,GOOG,AMZN,TSLA,NVDA,FB,TSM,UNH,JNJ,V,WMT,BAC,PG,HD,MA,XOM,CVX,PFE,BABA';
-  const response = await api.get<IResponse>(`${process.env.REACT_APP_SERVER}yahoo-finance/tickers/info/${tikers}`, {
+  const response = await api.get<IResponse>(`${process.env.REACT_APP_SERVER}yahoo-finance/tickers`, {
     params: { q: '' },
   });
 
