@@ -11,12 +11,12 @@ interface IFooter {
 const Footer: FC<IFooter> = ({ handleCLick, id }) => {
   const navigate = useNavigate();
   const mock = () => {
-    navigate(`stock/${id}`);
     handleCLick();
+    navigate(`/stock/${id}`);
   };
   return (
     <div className='footer-container'>
-      <Button handleClick={mock}>подробная статистика</Button>
+      <Button handleClick={mock}>статистика</Button>
       <Button handleClick={handleCLick}>закрыть</Button>
     </div>
   );

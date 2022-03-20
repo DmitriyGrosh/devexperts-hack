@@ -7,15 +7,12 @@ import { events, timestamps } from '../../view/calendar/mocks';
 moment.locale('ru');
 
 interface IContent {
-  date: string;
   count: number;
   dividendPrice: number;
-  name: string;
   symbol: string;
-  id: string;
 }
 
-const Content: FC<IContent> = ({ date, count, dividendPrice, name, symbol, id }) => {
+const Content: FC<IContent> = ({ count, dividendPrice, symbol }) => {
   const [lastEvent, setLastEvent] = useState<any>(null);
   const [nextEvent, setNextEvent] = useState<any>(null);
 

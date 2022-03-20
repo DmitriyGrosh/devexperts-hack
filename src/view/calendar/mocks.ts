@@ -352,7 +352,7 @@ const data = [
 
 const parseDate = scheduler.date.str_to_date('%Y-%m-%d');
 
-export const events = data.map((elem) => {
+export const events = data.map((elem, globalId) => {
   if (elem.dividends) {
     const newArr = elem.dividends.map((el, id) => {
       const startTime = '10:30';
@@ -362,7 +362,7 @@ export const events = data.map((elem) => {
       const endDateTime = moment(`${date} ${endTime}`).format();
       return {
         ...el,
-        id: nanoid(),
+        id: Number(`${globalId}${id}`),
         count: id + 1,
         color: '#5142AB',
         start_date: startDateTime,

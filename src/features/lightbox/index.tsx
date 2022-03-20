@@ -13,7 +13,6 @@ const Lightbox = () => {
   const formRef = useRef<HTMLDivElement>(null);
   const [name, setName] = useState<string>('');
   const [time, setTime] = useState<string>('');
-  const [date, setDate] = useState<string>('');
   const [count, setCount] = useState<number>(0);
   const [idEvent, setIdEvent] = useState<string>('');
   const [dividendPrice, setDividendPrice] = useState<number>(0);
@@ -35,7 +34,6 @@ const Lightbox = () => {
 
         setName(event.text);
         setTime(`${start} - ${end}`);
-        setDate(event.date);
         setCount(event.count);
         setIdEvent(event.id);
         setDividendPrice(event.dividendPrice);
@@ -53,7 +51,7 @@ const Lightbox = () => {
   return (
     <div ref={formRef} id='lightbox-form'>
       <Header name={name} time={time} />
-      <Content count={count} date={date} dividendPrice={dividendPrice} name={name} symbol={symbol} id={idEvent} />
+      <Content count={count} dividendPrice={dividendPrice} symbol={symbol} />
       <Footer id={idEvent} handleCLick={closeForm} />
     </div>
   );
