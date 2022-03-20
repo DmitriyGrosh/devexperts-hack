@@ -2,14 +2,15 @@ import React, { useState, FC } from 'react';
 
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { UserStock } from '../row/Row';
 
 interface IProps {
-  stocks: { symbol: string }[];
-  handleSetSearch: (event: { symbol: string }) => void;
+  stocks: UserStock[];
+  handleSetSearch: (event: UserStock) => void;
 }
 
 const AutocompleteStocks: FC<IProps> = ({ stocks, handleSetSearch }) => {
-  const [value, setValue] = useState<{ symbol: string } | null>(null);
+  const [value, setValue] = useState<UserStock | null>(null);
   const [inputValue, setInputValue] = useState<string>('');
 
   return (

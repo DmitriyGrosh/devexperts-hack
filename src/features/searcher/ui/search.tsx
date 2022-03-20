@@ -1,16 +1,17 @@
 import './searchstyles.scss';
-import React, { FC, useState } from 'react';
+import React, { FC, ChangeEvent } from 'react';
 
-type Props = {};
-const Search: FC = (props: Props) => {
-  const textSearch = '';
+interface ISearch {
+  filterStocks: (event: ChangeEvent<HTMLInputElement>, ...rest: any[]) => void;
+  searchValue: string;
+}
+
+const Search: FC<ISearch> = ({ filterStocks, searchValue }) => {
   return (
     <div className='search-form'>
-      <form>
-        <input type='text' placeholder='Поиск...' value={textSearch} onChange={() => {}} />
-        <button type='submit' />
-      </form>
+      <input type='text' placeholder='Поиск...' value={searchValue} onChange={filterStocks} />
     </div>
   );
 };
+
 export default Search;
